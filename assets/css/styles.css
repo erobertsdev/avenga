@@ -63,11 +63,12 @@ a {
 
 #nav-lower a {
   font-weight: 500;
-  color: #cfcfcf;
+  color: var(--main-white);
+  filter: brightness(0.8);
 }
 
 #nav-lower a:hover {
-  color: var(--main-white);
+  filter: brightness(1);
   transition: all 0.3s linear;
 }
 
