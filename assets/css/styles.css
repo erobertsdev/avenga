@@ -101,3 +101,56 @@ a {
   background-position: 100% 100%;
   background-size: 100% 2px;
 }
+
+header {
+  background-image: url('/assets/img/header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header-text {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  text-shadow: var(--main-black) 1px 1px 7px;
+  transform: translateX(-30%);
+}
+
+.header-text--main {
+  color: var(--main-white);
+  text-align: center;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.header-text--sub {
+  color: var(--main-white);
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+.header-text--h3 {
+  color: var(--main-white);
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.header-button {
+  background-color: var(--main-turquoise);
+  color: var(--main-white);
+  border: 1px solid var(--main-white);
+  padding: 20px 50px;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.header-button:hover {
+  filter: brightness(0.85);
+}
