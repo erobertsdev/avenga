@@ -1,6 +1,51 @@
+:root {
+  --main-gray: #bababc;
+  --main-turquoise: #4a6b74;
+  --main-white: #fff;
+  --main-black: #000;
+}
+
 * {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main-white);
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-black);
+}
+
+.font-size-large {
+  font-size: 2em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.icon-social {
+  width: 33px;
+  margin-left: 5px;
+  color: var(--main-turquoise);
+}
+
+#nav-upper {
+  background-color: var(--main-gray);
+  display: flex;
+  padding: 15px;
+}
+
+#nav-upper--contact {
+  text-align: right;
+  margin-left: auto;
+  padding-right: 20px;
+  padding-top: 20px;
+  line-height: 4ch;
 }
