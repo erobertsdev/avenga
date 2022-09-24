@@ -108,10 +108,13 @@ header {
   align-items: center;
 }
 
+#header-text {
+  transform: translateX(-37%);
+}
+
 #header-text h1, #header-text h2, #header-text p {
   font-family: 'DM Sans', Arial, Helvetica, sans-serif;
   text-shadow: var(--main-black) 1px 1px 7px;
-  transform: translateX(-37%);
 }
 
 .header-text--main {
