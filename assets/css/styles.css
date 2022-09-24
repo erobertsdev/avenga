@@ -294,3 +294,22 @@ header {
   margin-top: 50px;
   padding: 0;
 }
+
+#choose-us--blurb-svg {
+  float: left;
+  fill: var(--main-white);
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
+}
+
+.choose-us--blurb-text {
+  width: 90%;
+  line-height: 2;
+  text-align: left;
+  color: var(--main-white);
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
