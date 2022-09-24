@@ -77,14 +77,6 @@ a {
 }
 
 /* nav underline effect on hover */
-/* #nav-lower a:hover::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: var(--main-white);
-  margin-top: 5px;
-} */
 .underline {
   display: inline-block;
   padding-bottom:2px;
@@ -92,12 +84,15 @@ a {
   background-position: 0 100%;
   background-size: 0% 2px;
   background-repeat: no-repeat;
-  transition:
-    background-size 0.3s,
-    background-position 0s 0.3s;
+  transition: all 0.3s;
 }
 
 .underline:hover {
+  background-position: 100% 100%;
+  background-size: 100% 2px;
+}
+
+.active {
   background-position: 100% 100%;
   background-size: 100% 2px;
 }
@@ -113,10 +108,10 @@ header {
   align-items: center;
 }
 
-#header-text {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+#header-text h1, #header-text h2, #header-text p {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
   text-shadow: var(--main-black) 1px 1px 7px;
-  transform: translateX(-30%);
+  transform: translateX(-37%);
 }
 
 .header-text--main {
@@ -132,7 +127,7 @@ header {
   font-weight: 500;
 }
 
-.header-text--h3 {
+.header-text--p {
   color: var(--main-white);
   font-size: 1.5em;
   font-weight: 500;
@@ -153,4 +148,41 @@ header {
 
 .header-button:hover {
   filter: brightness(0.85);
+}
+
+#about {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+#about-container {
+  padding: 50px 0;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2.3em;
+  color: var(--main-turquoise);
+  font-weight: 700;
+  margin-top: 50px;
+}
+
+.about-divider {
+  display: block; 
+  height: 1px;
+  border: 0; 
+  border-top: 1px solid #ccc;
+  margin: 1em 0; 
+  padding: 0;
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 2;
+  padding-bottom: 50px;
+}
+
+.about-link {
+  color: var(--main-turquoise);
+  font-weight: 700;
 }
