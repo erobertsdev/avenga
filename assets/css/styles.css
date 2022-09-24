@@ -170,7 +170,7 @@ header {
   margin-top: 50px;
 }
 
-.about-divider {
+.about-divider, .choose-us--divider, #call-review--divider {
   display: block; 
   height: 1px;
   border: 0; 
@@ -285,16 +285,6 @@ header {
   margin: 20px auto;
 }
 
-.choose-us--divider {
-  display: block; 
-  height: 1px;
-  border: 0; 
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  margin-top: 50px;
-  padding: 0;
-}
-
 #choose-us--blurb-svg {
   float: left;
   fill: var(--main-white);
@@ -313,3 +303,60 @@ header {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+#call-review {
+  text-align: center;
+  background-color: var(--main-white);
+  padding: 50px 0;
+}
+
+#call-review a {
+  color: var(--main-turquoise);
+  font-weight: 700;
+}
+
+#call-review--container-top, #call-review--container-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  gap: 150px;
+  flex-wrap: wrap;
+  width: 65%;
+  margin: 0 auto;
+}
+
+#call-review--container-top {
+  margin-top: 50px;
+}
+
+#call-review--svg {
+  fill: var(--main-black);
+  width: 200px;
+  height: 200px;
+  justify-self: center;
+  align-self: center;
+}
+
+#call-review--svg-text {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.call-review--credentials-img {
+  margin-top: 100px;
+  filter: grayscale(100%);
+  width: 230px;
+}
+
+.call-review--credentials-img:hover {
+  filter: grayscale(0%);
+  transition: all 0.3s;
+}
+
+#call-review--divider-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
