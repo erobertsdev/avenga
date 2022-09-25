@@ -372,11 +372,10 @@ footer {
 
 footer a {
   color: var(--main-white);
-  font-weight: bold;
 }
 
-.footer-active {
-  color: var(--main-white);
+footer a.active {
+  font-weight: bold;
 }
 
 #footer-container {
@@ -421,5 +420,20 @@ flex-grow: 1;
   margin: 20px 0;
   width: 80%;
 }
+
+#hours-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 70%;
+}
+
+#hours-container-right {
+  width: 50%;
+  text-align: right;
+}
+
 
 

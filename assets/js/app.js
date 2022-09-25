@@ -6,3 +6,5 @@ document.body.onscroll = function myFunction() {
 	let yvalue = scrolltotop * factor;
 	target.style.backgroundPosition = xvalue + ' ' + yvalue + 'px';
 };
+
+// TODO: BUSINESS HOURS IN FOOTER
