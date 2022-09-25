@@ -23,6 +23,10 @@ a {
   color: var(--main-black);
 }
 
+a.nav-contact-info {
+  font-size: 1.2em;
+}
+
 .font-size-large {
   font-size: 2em;
 }
@@ -170,7 +174,7 @@ header {
   margin-top: 50px;
 }
 
-.about-divider, .choose-us--divider, #call-review--divider {
+.about-divider, .choose-us--divider, #call-review--divider, .our-story--hr {
   display: block; 
   height: 1px;
   border: 0; 
@@ -433,6 +437,109 @@ flex-grow: 1;
 #hours-container-right {
   width: 50%;
   text-align: right;
+}
+
+
+/* ABOUT PAGE SPECIFIC STYLING */
+#our-story {
+  width: 60%;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+#our-story--body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+}
+
+.our-story--hr {
+  margin-bottom: 30px;
+}
+
+#our-story--title {
+  color: var(--main-turquoise);
+  font-size: 2.3em;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 100px;
+  margin-bottom: 10px;
+}
+
+#our-story--body-button {
+  color: var(--main-white);
+  background-color: var(--main-turquoise);
+  padding: 20px 20px;
+  border: none;
+}
+
+#our-story--body-button:hover {
+  filter: brightness(0.8);
+  transition: all 0.3s;
+}
+
+#our-story--body-button > a {
+  color: var(--main-white);
+  text-decoration: none;
+}
+
+.our-story--img-container {
+  width: 480px;
+  height: 290px;
+  margin-bottom: 10px;
+  box-shadow:rgba(0, 0, 0, 0.8) 0px 0px 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#our-story--img-1, #our-story--img-2 {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#our-story--img-1 {
+  background-image: url('/assets/img/our-story-1.jpg');
+}
+
+#our-story--img-2 {
+  background-image: url('/assets/img/our-story-2.jpg');
+}
+
+.our-story--img-container:hover #our-story--img-1, .our-story--img-container:hover #our-story--img-2 {
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
+
+.our-story--body-text {
+  text-align: left;
+  color: var(--main-black);
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+#help {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  line-height: 2;
+  text-align: center;
+}
+
+#help-svg-container {
+  width: 12em;
+  margin: 0 auto;
+}
+
+#help-title {
+  font-size: 1.4em;
+}
+
+#help-phone-number {
+  color: var(--main-turquoise);
 }
 
 
