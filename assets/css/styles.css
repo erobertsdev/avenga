@@ -194,6 +194,10 @@ header {
   color: var(--main-white);
   background-color: #000;
   background-image: url('/assets/img/about-2-bg.jpg');
+  background-attachment: scroll;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #about-2-bgfilter {
@@ -363,6 +367,16 @@ header {
 footer {
   color: var(--main-white);
   background-color: var(--main-black);
+  line-height: 2;
+}
+
+footer a {
+  color: var(--main-white);
+  font-weight: bold;
+}
+
+.footer-active {
+  color: var(--main-white);
 }
 
 #footer-container {
@@ -370,11 +384,15 @@ footer {
   margin: 0 auto;
   padding: 50px 0;
   display: flex;
+  gap: 50px;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-#footer-container--col {
+.footer-container--col {
+color: var(--main-gray);
 text-align: left;
+flex-grow: 1;
 }
 
 .footer-container--payment {
@@ -382,9 +400,26 @@ text-align: left;
 }
 
 .footer-container--title {
+  color: var(--main-white);
   font-size: 1.2em;
   font-weight: 700;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
+
+#footer-1-upper {
+  line-height: 3;
+}
+
+#footer-1-lower {
+  line-height: 2;
+}
+
+#footer-hr {
+  border: 0;
+  border-top: 1px solid var(--main-white);
+  margin: 20px 0;
+  width: 80%;
+}
+
 
