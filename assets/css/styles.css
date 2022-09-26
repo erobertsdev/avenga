@@ -560,4 +560,25 @@ flex-grow: 1;
   margin: 0 auto;
 }
 
+#services-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  margin: 50px auto;
+}
+
+.services-list-grid-col {
+  text-align: left;
+  width: 300px;
+  height: 300px;
+  color: var(--main-white);
+  padding: 20px 20px;
+  box-shadow:rgba(0, 0, 0, 0.8) 0px 0px 5px;
+  overflow: hidden;
+}
+
+.reach-out-svg {
+  margin-top: 50px;
+}
+
 
