@@ -426,7 +426,7 @@ flex-grow: 1;
   width: 80%;
 }
 
-#hours-container {
+#hours-container, #contact-card--hours-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -435,9 +435,14 @@ flex-grow: 1;
   width: 70%;
 }
 
-#hours-container-right {
+#hours-container-right, #contact-card--hours-container-right {
   width: 50%;
   text-align: right;
+}
+
+#contact-card--hours-container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 
@@ -647,7 +652,6 @@ flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 400px));
   grid-gap: 20px;
-  margin-bottom: 100px;
   background-color: var(--main-turquoise);
   color: var(--main-white);
   padding: 100px 100px;
@@ -658,6 +662,7 @@ flex-grow: 1;
 .contact-card {
   background-color: #4e6f79;
   padding: 20px 20px;
+  margin-bottom: 100px;
   text-align: center;
   box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 10px;
   line-height: 2;
