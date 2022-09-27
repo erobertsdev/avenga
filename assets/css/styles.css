@@ -49,10 +49,14 @@ a.nav-contact-info {
   padding: 15px;
 }
 
+#nav-upper--logo {
+  padding-left: 280px;
+}
+
 #nav-upper--contact {
   text-align: right;
   margin-left: auto;
-  padding-right: 20px;
+  padding-right: 280px;
   padding-top: 20px;
   line-height: 4ch;
 }
