@@ -649,23 +649,37 @@ flex-grow: 1;
 }
 
 #contact-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 400px));
-  grid-gap: 20px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
   background-color: var(--main-turquoise);
   color: var(--main-white);
   padding: 100px 100px;
-  justify-content: center;
-  align-content: center;
+}
+
+#contact-cards--container {
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+  flex-grow: 1;
+	justify-content: space-evenly;
+  background-color: var(--main-turquoise);
+  color: var(--main-white);
+  padding-top: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 30px;
 }
 
 .contact-card {
-  background-color: #4e6f79;
+  width: 400px;
+  background-color: #51737e;
   padding: 20px 20px;
-  margin-bottom: 100px;
   text-align: center;
   box-shadow:rgba(0, 0, 0, 0.2) 0px 0px 10px;
   line-height: 2;
+  margin-bottom: 50px;
 }
 
 .contact-card a {
@@ -677,6 +691,10 @@ flex-grow: 1;
 .contact-card--title {
   font-size: 1.5em;
   margin-bottom: 10px;
+}
+
+#contact-card--hours-emergency-text {
+  margin: 0 auto;
 }
 
 

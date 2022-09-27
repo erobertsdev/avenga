@@ -66,6 +66,7 @@
             <label for="message">Details or Message</label><br>
             <textarea name="message" id="message" placeholder="Your Message" maxlength="1000" rows="4" required></textarea><br>
             <!-- Captcha  -->
+            <p>[CAPTCHA once back-end is wired]</p>
             <button type="submit" id="contact-form--btn">Send Message</button>
           </form>
         </div>
@@ -81,6 +82,7 @@
     </section>
 
     <section id="contact-cards">
+      <div id="contact-cards--container">
       <div class="contact-card">
         <div class="contact-card--svg-container">
           <div class="contact-card--svg-wrapper">
@@ -162,10 +164,11 @@
               <p>8:00 am - 4:30 pm</p>
               <p>Closed</p>
             </div>
-            <p>24-Hour Emergency Service Available</p>
+            <p id="contact-card--hours-emergency-text">24-Hour Emergency Service Available</p>
           </div>
         </div>
-      </div>
+    </div>
+  </div>
     </section>
 
     <section id="map">
