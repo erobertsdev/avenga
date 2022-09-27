@@ -107,7 +107,7 @@ a.nav-contact-info {
 }
 
 header {
-  background-image: url('/assets/img/header-bg.jpg');
+  background-image: url('../../assets/img/header-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -202,7 +202,7 @@ header {
 #about-2, #services-include-list {
   color: var(--main-white);
   background-color: #000;
-  background-image: url('/assets/img/about-2-bg.jpg');
+  background-image: url('../../assets/img/about-2-bg.jpg');
   background-attachment: fixed;
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -511,27 +511,27 @@ flex-grow: 1;
 }
 
 #our-story--img-1 {
-  background-image: url('/assets/img/our-story-1.jpg');
+  background-image: url('../../assets/img/our-story-1.jpg');
 }
 
 #our-story--img-2 {
-  background-image: url('/assets/img/our-story-2.jpg');
+  background-image: url('../../assets/img/our-story-2.jpg');
 }
 
 #services--img-1 {
-  background-image: url('/assets/img/services-1.jpg');
+  background-image: url('../../assets/img/services-1.jpg');
 }
 
 #services--img-2 {
-  background-image: url('/assets/img/services-2.jpg');
+  background-image: url('../../assets/img/services-2.jpg');
 }
 
 #contact--img-1 {
-  background-image: url('/assets/img/contact-1.jpg');
+  background-image: url('../../assets/img/contact-1.jpg');
 }
 
 #contact--img-2 {
-  background-image: url('/assets/img/contact-2.jpg');
+  background-image: url('../../assets/img/contact-2.jpg');
 }
 
 .our-story--img-container:hover #our-story--img-1, .our-story--img-container:hover #our-story--img-2, .services--img-container:hover #services--img-1, .services--img-container:hover #services--img-2, .contact--img-container:hover #contact--img-1, .contact--img-container:hover #contact--img-2 {
