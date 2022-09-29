@@ -701,4 +701,24 @@ flex-grow: 1;
   margin: 0 auto;
 }
 
+/* Media Queries */
+@media screen and (max-width: 1180px) {
+  #nav-upper {
+    float: none;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  #nav-upper--contact, #nav-upper--logo {
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
 
+@media screen and (max-width: 768px) {
+  #services-list-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
