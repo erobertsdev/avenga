@@ -726,3 +726,36 @@ flex-grow: 1;
     line-height: 3;
   }
 }
+
+@media screen and (max-width: 1250px) {
+  #header {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  #header-text {
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #header-text h1 {
+    font-size: 2em;
+  }
+  #header-text h2 {
+    font-size: 1.5em;
+  }
+  #header-text h3 {
+    font-size: 1.2em;
+  }
+  #header-text h4 {
+    font-size: 1em;
+  }
+  #header-text h5 {
+    font-size: 0.8em;
+  }
+  #header-text h6 {
+    font-size: 0.6em;
+  }
+}
