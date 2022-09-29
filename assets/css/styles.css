@@ -717,8 +717,12 @@ flex-grow: 1;
   }
 }
 
-@media screen and (max-width: 768px) {
-  #services-list-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media screen and (max-width: 650px) {
+  #nav-lower ul {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    line-height: 3;
   }
 }
