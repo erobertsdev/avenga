@@ -758,4 +758,8 @@ flex-grow: 1;
   #header-text h6 {
     font-size: 0.6em;
   }
+  #about-container {
+    width: 80%;
+    text-align: center;
+  }
 }
