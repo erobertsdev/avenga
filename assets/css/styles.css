@@ -762,4 +762,14 @@ flex-grow: 1;
     width: 80%;
     text-align: center;
   }
+  #about-2-container {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #about-2-hexagon, #services-include-hexagon {
+    width: 350px;
+  }
 }
