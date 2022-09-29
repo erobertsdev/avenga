@@ -768,8 +768,23 @@ flex-grow: 1;
   }
 }
 
+@media screen and (max-width: 600px) {
+  #choose-us--grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media screen and (max-width: 500px) {
   #about-2-hexagon, #services-include-hexagon {
     width: 350px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #about-2-hexagon, #services-include-hexagon {
+    width: 300px;
+  }
+  #choose-us--grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
