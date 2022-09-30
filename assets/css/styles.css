@@ -784,6 +784,9 @@ flex-grow: 1;
     width: 80%;
     text-align: center;
   }
+  #our-story--title, #services--title, #contact-title, #contact-sub-title {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -799,6 +802,15 @@ flex-grow: 1;
 @media screen and (max-width: 600px) {
   #choose-us--grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .contact-card {
+    width: 350px;
+  }
+  .contact-card--text-container p {
+    font-size: 14px;
   }
 }
 
