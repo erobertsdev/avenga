@@ -704,11 +704,11 @@ flex-grow: 1;
 /* Media Queries */
 @media screen and (max-width: 1450px) {
   /* stack grid columns on top of each other */
-  #our-story--body, #services--body {
+  #our-story--body, #services--body, #contact--body {
     grid-template-columns: repeat(1, 1fr);
     text-align: center;
   }
-  .our-story--img-container, .services--img-container {
+  .our-story--img-container, .services--img-container, .contact--img-container {
     margin: 20px auto;
     width: 80%;
   }
