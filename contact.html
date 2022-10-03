@@ -62,7 +62,7 @@
             <label for="email">Email</label><br>
             <input type="email" class="contact-form--input" name="email" id="email" placeholder="Your Email" maxlength="80" required><br>
             <label for="phone">Phone Number</label><br>
-            <input type="tel" class="contact-form--input" name="phone" id="phone" placeholder="Your Phone Number" maxlength="20" required><br>
+            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="contact-form--input" name="phone" id="phone" placeholder="Your Phone Number" maxlength="20" required><br>
             <label for="message">Details or Message (3000 Character Limit)</label><br>
             <textarea name="message" id="message" placeholder="Your Message" maxlength="3000" rows="4" required></textarea><br>
             <!-- Captcha  -->
