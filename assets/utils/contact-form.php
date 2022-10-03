@@ -6,6 +6,7 @@ if($_POST['name'] != '' && $_POST['email'] != '' && $_POST['message'] != '' && $
 // All inputs trimmed for security
 $to = 'erobertsdev@gmail.com';
 $email = substr($_POST['email'],0,80);
+$from = $_POST['email'];
 $name = substr($_POST['name'],0,50);
 $business_name = substr($_POST['business-name'],0,100);
 $phone = substr($_POST['phone'],0,20);
@@ -35,9 +36,10 @@ $message .= '
 <p><b>Message:</b> ' . htmlspecialchars(substr($_POST['message'],0,3000)) . '</p>
 ';
 $message .= '<hr></body></html>';
-$headers = 'MIME-Version: 1.0' . '\r\n'; 
-$headers .= 'Content-type:text/html;charset=UTF-8' . '\r\n'; 
-$headers .= 'From: ' . $email . '\r\n';
+$headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+// $headers = 'MIME-Version: 1.0' . '\r\n'; 
+// $headers .= 'Content-type:text/html;charset=UTF-8' . '\r\n'; 
+// $headers .= 'From' => $email . '\r\n';
 
 
 $retval = mail($to, 'New Contact Form Submission', $message, $headers);
