@@ -50,7 +50,6 @@
       <hr class="contact--hr">
       <p>We love to hear from our clients and potential clients!</p>
       <h2 id="contact-sub-title">Send Us a Message</h2>
-      <h3>All fields besides "Business Name" required.</h3>
       <div id="contact--body">
         <div class="contact--body-col">
           <form action="./assets/utils/contact-form.php" method="POST">
@@ -62,7 +61,7 @@
             <input type="text" class="contact-form--input" name="address" id="address" placeholder="Your Address" maxlength="100" required><br>
             <label for="email">Email</label><br>
             <input type="email" class="contact-form--input" name="email" id="email" placeholder="Your Email" maxlength="80" required><br>
-            <label for="phone">Phone Number</label><br>
+            <label for="phone">Phone Number</label><small>Format: 123-456-7890</small><br>
             <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="contact-form--input" name="phone" id="phone" placeholder="Your Phone Number" maxlength="20" required><br>
             <label for="message">Details or Message (3000 Character Limit)</label><br>
             <textarea name="message" id="message" placeholder="Your Message" maxlength="3000" rows="4" required></textarea><br>

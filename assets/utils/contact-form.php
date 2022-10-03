@@ -17,7 +17,7 @@ $message = '
 <head>
 <title>New message from $name</title>
 </head>
-<body>
+<body style="font-family:Arial,Helvetica,sans-serif;">
 <h1>New contact form submission:</h1>
 <hr>
 <p><b>Name:</b> ' . $name . '</p>
@@ -36,23 +36,19 @@ $message .= '
 <p><b>Message:</b> ' . htmlspecialchars(substr($_POST['message'],0,3000)) . '</p>
 ';
 $message .= '<hr></body></html>';
-$headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
-// $headers = 'MIME-Version: 1.0' . '\r\n'; 
-// $headers .= 'Content-type:text/html;charset=UTF-8' . '\r\n'; 
-// $headers .= 'From' => $email . '\r\n';
-
+$headers = ['From' => 'Avenga-Contact@avengawaterwell.com', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 
 $retval = mail($to, 'New Contact Form Submission', $message, $headers);
 
 if( $retval == true ) {
-  echo '<h1 style="color:green;">Message sent successfully!</h1><br> Redirecting to home page...';
-  echo 'If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>.';
+  echo '<div style="font-family:Arial,Helvetica,sans-serif;text-align:center;><h1 style="color:green;">Message sent successfully!</h1><br> Redirecting to home page...';
+  echo 'If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>.</div>';
   // Redirect back to index.html after 3 seconds
   header( 'refresh:3;url=https://eroberts.dev/avenga/index.html' );
   die();
 }else {
-  echo '<h1 style="color:red;">Sorry, an error occurred while sending the message. Please try again.</h1><br> Redirecting to contact form...';
-  echo 'If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>.';
+  echo '<div style="font-family:Arial,Helvetica,sans-serif;text-align:center;><h1 style="color:red;">Sorry, an error occurred while sending the message. Please try again.</h1><br> Redirecting to contact form...';
+  echo 'If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong></div>.';
   // Redirect back to contact.html after 3 seconds
   header( 'refresh:3;url=https://eroberts.dev/avenga/contact.html' );
   die();
