@@ -45,13 +45,13 @@ $retval = mail($to, 'New Contact Form Submission', $message, $headers);
 if( $retval == true ) {
   echo '<h1 style="color:green;">Message sent successfully!</h1><br> Redirecting to home page...';
   echo 'If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>.';
-  // Redirect back to index.html after 5 seconds
+  // Redirect back to index.html after 3 seconds
   header( 'refresh:3;url=https://eroberts.dev/avenga/index.html' );
   die();
 }else {
-  echo 'Sorry, an error occurred while sending the message. Please try again. Redirecting to contact form...';
-  echo 'If you are not redirected, please <a href="http://eroberts.dev/avenga/contact.html">click here</a>.';
-  // Redirect back to contact.html after 5 seconds
+  echo '<h1 style="color:red;">Sorry, an error occurred while sending the message. Please try again.</h1><br> Redirecting to contact form...';
+  echo 'If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>.';
+  // Redirect back to contact.html after 3 seconds
   header( 'refresh:3;url=https://eroberts.dev/avenga/contact.html' );
   die();
 }
