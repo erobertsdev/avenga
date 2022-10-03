@@ -54,17 +54,17 @@
         <div class="contact--body-col">
           <form action="./assets/utils/contact-form.php" method="POST">
             <label for="name">Name</label><br>
-            <input type="text" class="contact-form--input" name="name" id="name" placeholder="Your Name" required><br>
+            <input type="text" class="contact-form--input" name="name" id="name" placeholder="Your Name" maxlength="50" required><br>
             <label for="business-name">Business Name (Optional)</label><br>
-            <input type="text" class="contact-form--input" name="business-name" id="business-name" placeholder="Business Name"><br>
+            <input type="text" class="contact-form--input" name="business-name" id="business-name" maxlength="100" placeholder="Business Name"><br>
             <label for="address">Address</label><br>
-            <input type="text" class="contact-form--input" name="address" id="address" placeholder="Your Address" required><br>
+            <input type="text" class="contact-form--input" name="address" id="address" placeholder="Your Address" maxlength="100" required><br>
             <label for="email">Email</label><br>
-            <input type="email" class="contact-form--input" name="email" id="email" placeholder="Your Email" required><br>
+            <input type="email" class="contact-form--input" name="email" id="email" placeholder="Your Email" maxlength="80" required><br>
             <label for="phone">Phone Number</label><br>
-            <input type="tel" class="contact-form--input" name="phone" id="phone" placeholder="Your Phone Number" required><br>
-            <label for="message">Details or Message</label><br>
-            <textarea name="message" id="message" placeholder="Your Message" maxlength="1000" rows="4" required></textarea><br>
+            <input type="tel" class="contact-form--input" name="phone" id="phone" placeholder="Your Phone Number" maxlength="20" required><br>
+            <label for="message">Details or Message (3000 Character Limit)</label><br>
+            <textarea name="message" id="message" placeholder="Your Message" maxlength="3000" rows="4" required></textarea><br>
             <!-- Captcha  -->
             <p>[CAPTCHA once back-end is wired]</p>
             <button type="submit" id="contact-form--btn">Send Message</button>
