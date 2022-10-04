@@ -852,6 +852,10 @@ flex-grow: 1;
   transform: translateY(6px);
 }
 
+#phone-format {
+  font-size: 0.6em;
+}
+
 /* Media Queries */
 @media screen and (max-width: 1450px) {
   /* stack grid columns on top of each other */
