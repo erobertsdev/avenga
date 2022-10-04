@@ -974,6 +974,7 @@ flex-grow: 1;
 
 #appointment-maker--modal-body {
   padding: 20px;
+  padding-top: 0px;
 }
 
 #appointment-maker--modal-body-services {
@@ -988,6 +989,7 @@ flex-grow: 1;
   padding: 0 10px 0 0;
   box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px 0px;
   border-radius: 3px;
+  z-index: 7;
 }
 
 .appointment-maker--modal-body-service--left {
@@ -1029,13 +1031,46 @@ flex-grow: 1;
   margin-bottom: 10px;
 }
 
-.appointment-maker--modal-body-service-blurb {
+.appointment-maker--modal-body-service-time {
   font-size: 0.8em;
   margin-bottom: 10px;
 }
 
+.appointment-maker--modal-body-service-description {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.appointment-maker--modal-body-service-booking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--main-turquoise);
+  color: var(--main-white);
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 6;
+
+  transition: all 0.3s;
+}
+
+.service-closed {
+  height: 0px;
+}
+
+.service-open {
+  background-color: var(--main-turquoise);
+  color: var(--main-white);
+  height: 200px;
+}
+
 .d-none {
   display: none;
+}
+
+.d-hidden {
+  visibility: hidden;
 }
 
 

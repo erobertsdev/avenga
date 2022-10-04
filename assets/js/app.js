@@ -5,7 +5,8 @@ const contactWidget = document.getElementById('contact-widget'),
 	contactWidgetClose = document.getElementById('contact-widget--close'),
 	appointmentMaker = document.getElementById('appointment-maker'),
 	appointmentMakerModal = document.getElementById('appointment-maker--modal'),
-	appointmentMakerModalCloseButton = document.getElementById('appointment-maker--modal-close');
+	appointmentMakerModalCloseButton = document.getElementById('appointment-maker--modal-close'),
+	serviceBooking = document.querySelectorAll('.appointment-maker--modal-body-service');
 
 // Opens main widget when clicked
 contactWidget.addEventListener('click', () => {
@@ -42,4 +43,16 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 
 	// Show main widget
 	contactWidgetOpen.style.bottom = '0';
+});
+
+// Service Booking
+// -----------------------------------
+// Opens service booking when clicked
+serviceBooking.forEach((service) => {
+	service.addEventListener('click', () => {
+		//remove service-closed class
+		service.classList.remove('service-closed');
+		//add service-open class
+		service.classList.add('service-open');
+	});
 });
