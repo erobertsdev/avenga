@@ -314,11 +314,9 @@
         </div>
       </div>
       <div id="contact-widget--lower">
-        <div class="contact-widget--lower-icon-wrapper">
-          <a href="#">
+        <div class="contact-widget--lower-icon-wrapper" id="appointment-maker">
             <img src="./assets/icons/calendar-icon.png" alt="schedule appointment" title="Schedule Appointment" class="contact-icon" id="contact-icon--calendar">
             <p class="icon-text">Schedule Now</p>
-          </a>
         </div>
         <div class="contact-widget--lower-icon-wrapper">
           <a href="tel:575-887-6918" target="_blank">
@@ -334,11 +332,48 @@
         </div>
         <div class="contact-widget--lower-icon-wrapper">
           <a href="mailto:jrrobinson@hydroresolutions.com" target="_blank">
-            <img src="./assets/icons/email-icon.png" alt="Email Icon" title="Email Us" class="email-icon" id="contact-icon--email">
+            <img src="./assets/icons/email-icon.png" alt="Email Icon" title="Email Us" class="email-icon contact-icon" id="contact-icon--email">
             <p class="icon-text">Email Us</p>
           </a>
         </div>
       </div>
+      </div>
+
+      <!-- Appointment maker modal/widget -->
+      <div id="appointment-maker--modal">
+        <div id="appointment-maker--modal-container">
+          <div id="appointment-maker--modal-header">
+            <h4 id="appointment-maker--modal-title">Schedule an Appointment</h4>
+            <img src="./assets/icons/close-icon.png" alt="Close" id="appointment-maker--modal-close">
+          </div>
+          <div id="appointment-maker--modal-body">
+            <div id="appointment-maker--modal-body-left">
+              <p id="appointment-maker--modal-body-left-title">Schedule an Appointment</p>
+              <p id="appointment-maker--modal-body-left-blurb">We're here to help, please don't hesitate to reach out.</p>
+              <div id="appointment-maker--modal-body-left-call-btn-container">
+                <a href="tel:575-887-6918"><button id="appointment-maker--modal-body-left-call-btn">Call 575-887-6918<img src="./assets/icons/greater-than-icon.png" alt="greater than symbol" id="call-caret-icon"></button></a>
+              </div>
+            </div>
+            <div id="appointment-maker--modal-body-right">
+              <div id="appointment-maker--modal-body-right-container">
+                <div id="appointment-maker--modal-body-right-container-top">
+                  <p id="appointment-maker--modal-body-right-container-top-title">Schedule an Appointment</p>
+                  <p id="appointment-maker--modal-body-right-container-top-blurb">We're here to help, please don't hesitate to reach out.</p>
+                </div>
+                <div id="appointment-maker--modal-body-right-container-bottom">
+                  <div id="appointment-maker--modal-body-right-container-bottom-left">
+                    <p id="appointment-maker--modal-body-right-container-bottom-left-title">Schedule an Appointment</p>
+                    <p id="appointment-maker--modal-body-right-container-bottom-left-blurb">We're here to help, please don't hesitate to reach out.</p>
+                  </div>
+                  <div id="appointment-maker--modal-body-right-container-bottom-right">
+                    <p id="appointment-maker--modal-body-right-container-bottom-right-title">Schedule an Appointment</p>
+                    <p id="appointment-maker--modal-body-right-container-bottom-right-blurb">We're here to help, please don't hesitate to reach out.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <script src="./assets/js/app.js"></script>

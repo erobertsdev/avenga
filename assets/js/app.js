@@ -2,7 +2,10 @@
 // -----------------------------------
 const contactWidget = document.getElementById('contact-widget'),
 	contactWidgetOpen = document.getElementById('contact-widget--open'),
-	contactWidgetClose = document.getElementById('contact-widget--close');
+	contactWidgetClose = document.getElementById('contact-widget--close'),
+	appointmentMaker = document.getElementById('appointment-maker'),
+	appointmentMakerModal = document.getElementById('appointment-maker--modal'),
+	appointmentMakerModalCloseButton = document.getElementById('appointment-maker--modal-close');
 
 // Opens main widget when clicked
 contactWidget.addEventListener('click', () => {
@@ -18,4 +21,25 @@ contactWidgetClose.addEventListener('click', () => {
 	contactWidgetOpen.style.bottom = '-380px';
 	// Shows small widget
 	contactWidget.style.bottom = '0';
+});
+
+// Appointment Maker
+// -----------------------------------
+// Opens appointment maker when clicked
+appointmentMaker.addEventListener('click', () => {
+	// Hides main widget
+	contactWidgetOpen.style.bottom = '-380px';
+	// Shows appointment maker
+	contactWidget.style.bottom = '0';
+
+	// Remove display none from appointment maker
+	appointmentMakerModal.style.display = 'block';
+});
+
+appointmentMakerModalCloseButton.addEventListener('click', () => {
+	// Hides appointment maker
+	appointmentMakerModal.style.display = 'none';
+
+	// Show main widget
+	contactWidgetOpen.style.bottom = '0';
 });
