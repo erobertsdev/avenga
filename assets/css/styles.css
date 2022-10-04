@@ -874,6 +874,8 @@ flex-grow: 1;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 4;
   display: none;
+
+  transition: all 0.5s;
 }
 
 #appointment-maker--modal-container {
@@ -881,23 +883,31 @@ flex-grow: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
+  width: 80vw;
+  height: 80vh;
+  overflow-y: scroll;
   background-color: var(--main-white);
   border-radius: 5px;
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25);
-  padding: 20px;
+}
+
+#appointment-maker--modal-container::-webkit-scrollbar {
+  display: none;
+}
+
+#appointment-maker--modal-header {
+  background-color: var(--main-gray);
+  border-bottom: 1px solid var(--main-black);
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  height: 100px;
 }
 
 #appointment-maker--modal-title {
   font-size: 1.5em;
   margin-bottom: 10px;
   color: var(--main-turquoise);
-}
-
-#appointment-maker--modal-blurb {
-  font-size: 0.9em;
-  margin-bottom: 10px;
 }
 
 #appointment-maker--modal-form {
@@ -947,6 +957,17 @@ flex-grow: 1;
 #appointment-maker--modal-close:hover {
   filter: saturate(50%) contrast(50%) brightness(50%) 
   invert(80%) sepia(50%) hue-rotate(120deg);
+}
+
+#appointment-maker--modal-logo {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#appointment-maker--modal-logo img {
+  height: 80px;
+  width: 130px;
+  box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px 0px;
 }
 
 .d-none {
