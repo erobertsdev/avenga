@@ -996,12 +996,30 @@ flex-grow: 1;
   margin-right: 10px;
 }
 
-#service-borehole-img {
-  background-image: url('../../assets/img/service-borehole.jpg');
+#service-borehole-img, #service-water-well-img, #service-pressure-tank-img, #service-windmill-img, #service-appointment-img  {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
 
+#service-borehole-img {
+  background-image: url('../../assets/img/service-borehole.jpg');
+}
+
+#service-water-well-img {
+  background-image: url('../../assets/img/service-water-well-inspection.jpg');
+}
+
+#service-pressure-tank-img {
+  background-image: url('../../assets/img/service-pressure-tank.jpg');
+}
+
+#service-windmill-img {
+  background-image: url('../../assets/img/service-windmill.jpg');
+}
+
+#service-appointment-img {
+  background-image: url('../../assets/img/service-appointment.png');
 }
 
 .appointment-maker--modal-body-service-title {
