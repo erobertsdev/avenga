@@ -61,12 +61,12 @@ body {
   width: 200px;
   height: auto;
   margin: 0 auto;
-  text-align: center;
  }
 </style>
 </head>
 <body>
-<img src="../img/logo-240w.jpg" alt="Avenga Logo" id="avenga-logo" style="width: 200px; ">
+// TODO: Change Avenga Logo to real src
+<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" id="avenga-logo">
 <h1 style="color:#4a6b74;">Thank you for contacting us! We received your message and will be in touch shortly!:</h1>
 <hr>
 <p><b>Name:</b> ' . $name . '</p>
