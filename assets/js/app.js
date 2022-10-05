@@ -1,6 +1,6 @@
 // Contact Widget
 // -----------------------------------
-const contactWidget = document.getElementById('contact-widget'),
+let contactWidget = document.getElementById('contact-widget'),
 	contactWidgetOpen = document.getElementById('contact-widget--open'),
 	contactWidgetClose = document.getElementById('contact-widget--close'),
 	appointmentMaker = document.getElementById('appointment-maker'),
@@ -49,6 +49,44 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 	// Show main widget
 	contactWidgetOpen.style.bottom = '0';
 });
+
+// Restore eventlisteners for service cards that get removed when booking screen is opened
+const restoreEventListeners = () => {
+	// Borehole
+	serviceBoreholeButton = document.getElementById('borehole-button');
+	serviceBoreholeButton.addEventListener('click', () => {
+		bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
+	});
+
+	//Well Inspection
+	serviceWellInspectionButton = document.getElementById('well-inspection-button');
+	serviceWellInspectionButton.addEventListener('click', () => {
+		bookingScreen(
+			'Well Inspection',
+			'1 hour',
+			'../assets/img/service-water-well-inspection.jpg',
+			'Jesika Robinson'
+		);
+	});
+
+	// Pressure Tank
+	servicePressureTankButton = document.getElementById('pressure-tank-button');
+	servicePressureTankButton.addEventListener('click', () => {
+		bookingScreen('Pressure Tank', '3 hours', '../assets/img/service-pressure-tank.jpg', 'Jesika Robinson');
+	});
+
+	// Windmill
+	serviceWindmillButton = document.getElementById('windmill-button');
+	serviceWindmillButton.addEventListener('click', () => {
+		bookingScreen('Windmill', '3 hours', '../assets/img/service-windmill.jpg', 'Jesika Robinson');
+	});
+
+	// Appointment
+	serviceAppointmentButton = document.getElementById('service-appointment-button');
+	serviceAppointmentButton.addEventListener('click', () => {
+		bookingScreen('Appointment', '1 hour', '../assets/img/service-appointment.png', 'Jesika Robinson');
+	});
+};
 
 const restoreServiceModal = () => {
 	appointmentModalBody.innerHTML = `
@@ -129,6 +167,7 @@ const restoreServiceModal = () => {
                 </div>
               </div>
           </div>`;
+	restoreEventListeners();
 };
 
 /* <div id="back-button">
@@ -176,6 +215,39 @@ const bookingScreen = (service, time, imageURL, contact) => {
 	});
 };
 
+/******* INITIAL EVENT LISTENERS  *********/
+
+// Borehole
 serviceBoreholeButton.addEventListener('click', () => {
 	bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
+});
+
+// Water Well
+serviceWellInspectionButton.addEventListener('click', () => {
+	bookingScreen(
+		'Water Well Inspection',
+		'1 hour',
+		'../assets/img/service-water-well-inspection.jpg',
+		'Jesika Robinson'
+	);
+});
+
+// Pressure Tank
+servicePressureTankButton.addEventListener('click', () => {
+	bookingScreen(
+		'Service Call - Pressure Tank',
+		'3 hours',
+		'../assets/img/service-pressure-tank.jpg',
+		'Jesika Robinson'
+	);
+});
+
+// Windmill
+serviceWindmillButton.addEventListener('click', () => {
+	bookingScreen('Service Call - Windmill', '3 hours', '../assets/img/service-windmill.jpg', 'Jesika Robinson');
+});
+
+// Service Appointment
+serviceAppointmentButton.addEventListener('click', () => {
+	bookingScreen('Service Appointment', '1 hour', '../assets/img/service-appointment.png', 'Jesika Robinson');
 });
