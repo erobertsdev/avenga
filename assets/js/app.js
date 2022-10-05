@@ -48,6 +48,7 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 // Service Booking
 // -----------------------------------
 // Opens service booking when clicked
+// TODO: JUST ADD BOOKING BUTTON AND DESC TO CARD INSTEAD OF HAVING IT OPEN
 serviceBooking.forEach((service) => {
 	service.addEventListener('click', () => {
 		//remove service-closed class

@@ -900,7 +900,7 @@ flex-grow: 1;
   background-color: var(--main-turquoise);
   border-bottom: 1px solid var(--main-black);
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   margin-bottom: 20px;
   height: 100px;
 }
@@ -961,12 +961,13 @@ flex-grow: 1;
 }
 
 #appointment-maker--modal-logo {
+  height: 100%;
   margin-bottom: 10px;
   text-align: center;
 }
 
 #appointment-maker--modal-logo img {
-  height: 80px;
+  height: 100%;
   width: 130px;
   box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px 0px;
   border-radius: 5px;
@@ -986,15 +987,71 @@ flex-grow: 1;
 .appointment-maker--modal-body-service {
   display: flex;
   align-items: flex-start;
+  position: relative;
   padding: 0 10px 0 0;
   box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px 0px;
   border-radius: 3px;
   z-index: 7;
 }
 
+.appointment-maker--modal-body-service:hover .overlay {
+  width: 100%;
+  left: 0;
+  visibility: visible;
+}
+
+
+/* Slide-in effect */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 0;
+  height: 100%;
+  z-index: 7;
+  transition: .5s ease;
+  background-color: rgba(74, 107, 116, 0.5);
+  visibility: hidden;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.service-button {
+  position: absolute;
+  top: 50%;
+  /* right: 20px; */
+  transform: translate(-50%, -50%);
+  padding: 5px 10px;
+  border: 1px solid var(--main-turquoise);
+  color: var(--main-white);
+  border-radius: 5px;
+  background-color: var(--main-darkgray);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition-delay: 0.2s;
+  transition-property: opacity;
+}
+
+.appointment-maker--modal-body-service:hover .service-button {
+  opacity: 1;
+}
+
 .appointment-maker--modal-body-service--left {
+  flex-shrink: 0;
   width: 120px;
-  height: 92px;
+  height: 100%;
   margin-right: 10px;
 }
 
@@ -1033,6 +1090,8 @@ flex-grow: 1;
 
 .appointment-maker--modal-body-service-time {
   font-size: 0.8em;
+  font-weight: bold;
+  color: var(--main-darkgray);
   margin-bottom: 10px;
 }
 
