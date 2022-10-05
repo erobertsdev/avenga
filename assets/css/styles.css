@@ -1044,6 +1044,10 @@ flex-grow: 1;
   transition-property: opacity;
 }
 
+.service-button:hover {
+  filter: brightness(1.2);
+}
+
 .appointment-maker--modal-body-service:hover .service-button {
   opacity: 1;
 }
@@ -1132,6 +1136,36 @@ flex-grow: 1;
   visibility: hidden;
 }
 
+#back-container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+#back-container:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+#back-button {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+  color: var(--main-turquoise);
+  font-weight: bold;
+  width: 50px;
+  /* change hue to turquoise */
+  filter: saturate(50%) contrast(50%) brightness(50%)
+  invert(80%) sepia(50%) hue-rotate(120deg);
+}
+
+#back-button-text {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--main-turquoise);
+}
 
 /* Media Queries */
 @media screen and (max-width: 1450px) {

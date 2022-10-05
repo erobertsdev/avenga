@@ -5,8 +5,14 @@ const contactWidget = document.getElementById('contact-widget'),
 	contactWidgetClose = document.getElementById('contact-widget--close'),
 	appointmentMaker = document.getElementById('appointment-maker'),
 	appointmentMakerModal = document.getElementById('appointment-maker--modal'),
+	appointmentModalBody = document.getElementById('appointment-maker--modal-body'),
 	appointmentMakerModalCloseButton = document.getElementById('appointment-maker--modal-close'),
-	serviceBooking = document.querySelectorAll('.appointment-maker--modal-body-service');
+	serviceBookingButton = document.querySelectorAll('.service-button'),
+	serviceBoreholeButton = document.getElementById('borehole-button'),
+	serviceWellInspectionButton = document.getElementById('well-inspection-button'),
+	servicePressureTankButton = document.getElementById('pressure-tank-button'),
+	serviceWindmillButton = document.getElementById('windmill-button'),
+	serviceAppointmentButton = document.getElementById('service-appointment-button');
 
 // Opens main widget when clicked
 contactWidget.addEventListener('click', () => {
@@ -40,21 +46,136 @@ appointmentMaker.addEventListener('click', () => {
 appointmentMakerModalCloseButton.addEventListener('click', () => {
 	// Hides appointment maker
 	appointmentMakerModal.style.display = 'none';
-
 	// Show main widget
 	contactWidgetOpen.style.bottom = '0';
 });
 
-// Service Booking
-// -----------------------------------
-// Opens service booking when clicked
-// TODO: JUST ADD BOOKING BUTTON AND DESC TO CARD INSTEAD OF HAVING IT OPEN
-serviceBooking.forEach((service) => {
-	service.addEventListener('click', () => {
-		//remove service-closed class
-		service.classList.remove('service-closed');
-		service.classList.remove('d-hidden');
-		//add service-open class
-		service.classList.add('service-open');
+const restoreServiceModal = () => {
+	appointmentModalBody.innerHTML = `
+	<h4 id="appointment-maker--modal-title">Please select service:</h4>
+            <div id="appointment-maker--modal-body-services">
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-borehole-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Borehole Video</h5>
+                  <p class="appointment-maker--modal-body-service-time">1 hour | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Down-hole video of your well that includes a DVD copy to view at your convenience.
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="borehole-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-water-well-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Water Well Inspection</h5>
+                  <p class="appointment-maker--modal-body-service-time">1 hour | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="well-inspection-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-pressure-tank-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Service Call - Pressure Tank</h5>
+                  <p class="appointment-maker--modal-body-service-time">3 hours | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Issues with your pressure tank/switch? Let us help.
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="pressure-tank-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-windmill-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Service Call - Windmill</h5>
+                  <p class="appointment-maker--modal-body-service-time">3 hours | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Need your windmill repaired or new parts to replace? Give us a call!
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="windmill-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-appointment-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Service Appointment</h5>
+                  <p class="appointment-maker--modal-body-service-time">1 hour | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Out of water? Not sure why? Let us come figure it out
+                    </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="service-appointment-button">Book This Service</button></div>
+                </div>
+              </div>
+          </div>`;
+};
+
+/* <div id="back-button">
+<h2>Go Back</h2>
+</div> 
+WHY DOES THIS BREAK EVERYTHING
+*/
+
+// Opens the calendar/booking summary screen
+const bookingScreen = (service, time, imageURL, contact) => {
+	appointmentModalBody.innerHTML = `
+	<div id="date-picker">
+	<div id="back-container">
+		<img id="back-button" src="../assets/img/back-arrow.png" alt="back arrow" />
+		<p id="back-button-text">Go Back</p>
+	</div>
+		<h4 id="appointment-maker--modal-title">Select date & time:</h4>
+		<div id="date-picker--calendar">
+		<form id="date-picker--calendar--form">
+		<label for="date-picker--calendar--date">Date:</label>
+			<input type="date" id="date-picker--calendar-date" name="date-picker" />
+		</div>
+		<div id="date-picker--times">
+			<label for="date-picker--times--time">Time:</label>
+			<input type="time" id="date-picker--times-time" name="date-picker" />
+		</div>
+		<div id="date-picker--submit">
+			<button id="date-picker--submit-button">Submit</button>
+		</div>
+		</form>
+		<div id="appointment-maker--modal-summary">
+			<h4>Booking Summary</h4>
+			<img src="${imageURL}" alt="Service Image" />
+			<div id="appointment-maker--modal-body-summary">
+			<h5>${service}</h5>
+			<p>${time}</p>
+			<p>For a fee</p>
+			<p>${contact}</p>
+		</div>
+		</div>
+	</div>
+	`;
+	document.getElementById('back-container').addEventListener('click', () => {
+		restoreServiceModal();
 	});
+};
+
+serviceBoreholeButton.addEventListener('click', () => {
+	bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
 });
