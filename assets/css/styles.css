@@ -1167,6 +1167,40 @@ flex-grow: 1;
   color: var(--main-turquoise);
 }
 
+#date-picker label {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--main-turquoise);
+}
+
+#date-picker input {
+  /* width: 100%; */
+  padding: 10px;
+  border: 1px solid var(--main-turquoise);
+  border-radius: 5px;
+  background-color: var(--main-white);
+  color: var(--main-turquoise);
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+#date-picker--submit-button {
+  padding: 10px;
+  border: 1px solid var(--main-turquoise);
+  border-radius: 5px;
+  background-color: var(--main-turquoise);
+  color: var(--main-white);
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#date-picker--submit-button:hover {
+  filter: brightness(0.8);
+}
+
 /* Media Queries */
 @media screen and (max-width: 1450px) {
   /* stack grid columns on top of each other */

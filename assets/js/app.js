@@ -192,7 +192,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 		<div id="date-picker--times">
 			<label for="date-picker--times--time">Time:</label>
-			<input type="time" id="date-picker--times-time" name="date-picker" />
+			<input type="select" id="date-picker--times-time" name="date-picker-time" />
 		</div>
 		<div id="date-picker--submit">
 			<button id="date-picker--submit-button">Submit</button>
