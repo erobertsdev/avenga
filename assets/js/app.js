@@ -52,6 +52,7 @@ serviceBooking.forEach((service) => {
 	service.addEventListener('click', () => {
 		//remove service-closed class
 		service.classList.remove('service-closed');
+		service.classList.remove('d-hidden');
 		//add service-open class
 		service.classList.add('service-open');
 	});
