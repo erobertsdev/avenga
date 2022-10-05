@@ -184,6 +184,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		<img id="back-button" src="../assets/img/back-arrow.png" alt="back arrow" />
 		<p id="back-button-text">Go Back</p>
 	</div>
+	<div id="date-picker--left">
 		<h4 id="appointment-maker--modal-title">Select date & time:</h4>
 		<div id="date-picker--calendar">
 		<form id="date-picker--calendar--form">
@@ -192,12 +193,16 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 		<div id="date-picker--times">
 			<label for="date-picker--times--time">Time:</label>
-			<input type="select" id="date-picker--times-time" name="date-picker-time" />
+			<select id="date-picker--times-time" name="date-picker-time">
+			<option value="9:00">9:00</option>
+			</select>
 		</div>
 		<div id="date-picker--submit">
 			<button id="date-picker--submit-button">Submit</button>
 		</div>
 		</form>
+		</div>
+		<div id="date-picker--right">
 		<div id="appointment-maker--modal-summary">
 			<h4>Booking Summary</h4>
 			<img src="${imageURL}" alt="Service Image" />
@@ -206,6 +211,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 			<p>${time}</p>
 			<p>For a fee</p>
 			<p>${contact}</p>
+		</div>
 		</div>
 		</div>
 	</div>

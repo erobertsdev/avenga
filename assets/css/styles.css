@@ -1173,7 +1173,7 @@ flex-grow: 1;
   color: var(--main-turquoise);
 }
 
-#date-picker input {
+#date-picker input, #date-picker select {
   /* width: 100%; */
   padding: 10px;
   border: 1px solid var(--main-turquoise);
@@ -1199,6 +1199,50 @@ flex-grow: 1;
 
 #date-picker--submit-button:hover {
   filter: brightness(0.8);
+}
+
+#appointment-maker--modal-summary {
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 100%;
+  background-color: var(--main-white);
+  color: var(--main-turquoise);
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px;
+}
+
+#date-picker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-white);
+  color: var(--main-turquoise);
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  /* box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px; */
+}
+
+#date-picker--left {
+  flex-shrink: 0;
+  width: 300px;
+  height: 100%;
+  margin-right: 10px;
+  padding: 20px;
+}
+
+#date-picker--right {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  margin-left: 10px;
+  padding: 20px;
 }
 
 /* Media Queries */
