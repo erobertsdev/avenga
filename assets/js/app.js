@@ -13,7 +13,8 @@ let contactWidget = document.getElementById('contact-widget'),
 	servicePressureTankButton = document.getElementById('pressure-tank-button'),
 	serviceWindmillButton = document.getElementById('windmill-button'),
 	serviceAppointmentButton = document.getElementById('service-appointment-button'),
-	appointmentDate = document.getElementById('date-picker--times--time');
+	appointmentTime,
+	appointmentDate;
 
 // Opens main widget when clicked
 contactWidget.addEventListener('click', () => {
@@ -52,16 +53,33 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 });
 
 const generateServiceTimes = (service) => {
-	const hoursArray = [];
-	// Get the current date
-	let currentDate = new Date();
-	// Get the current day
-	let currentDay = currentDate.getDay();
-	// Get the current time for Mountain Time
-	let currentTime = currentDate.toLocaleString('en-US', { timeZone: 'America/Denver' });
+	const hoursArray = [ 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
+	let currentHour = new Date().getHours() + 1;
 	if (service === 'Borehole Video' || service === 'Water Well Inspection' || service === 'Service Appointment') {
+		// Filter out hours that have already passed
+		let filteredHours = hoursArray.filter((hour) => hour >= currentHour);
+		filteredHours.forEach((hour) => {
+			// Determine AM or PM
+			let amPm = hour >= 12 ? 'PM' : 'AM';
+			// convert hours to 12 hour format
+			let hour12 = hour > 12 ? hour - 12 : hour;
+			appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+		});
+		return filteredHours;
+	} else {
+		// Remove all items except 8, 11, 14
+		let filteredHours = hoursArray.filter((hour) => hour === 8 || hour === 11 || hour === 14);
+		// Filter out hours that have already passed
+		filteredHours = filteredHours.filter((hour) => hour >= currentHour);
+		filteredHours.forEach((hour) => {
+			// Determine AM or PM
+			let amPm = hour >= 12 ? 'PM' : 'AM';
+			// convert hours to 12 hour format
+			let hour12 = hour > 12 ? hour - 12 : hour;
+			appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+		});
+		return filteredHours;
 	}
-	return hoursArray;
 };
 
 // Restore eventlisteners for service cards that get removed when booking screen is opened
@@ -213,7 +231,6 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		<div id="date-picker--times">
 			<label for="date-picker--times--time">Time:</label>
 			<select id="date-picker--times--time" name="date-picker-time">
-			<option value="9:00">9:00</option>
 			</select>
 		</div>
 		<div id="date-picker--submit">
@@ -238,6 +255,8 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 	</div>
 	`;
+	appointmentTime = document.getElementById('date-picker--times--time');
+	appointmentDate = document.getElementById('date-picker--calendar--date');
 	document.getElementById('back-container').addEventListener('click', () => {
 		restoreServiceModal();
 	});
