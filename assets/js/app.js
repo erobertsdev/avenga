@@ -12,7 +12,8 @@ let contactWidget = document.getElementById('contact-widget'),
 	serviceWellInspectionButton = document.getElementById('well-inspection-button'),
 	servicePressureTankButton = document.getElementById('pressure-tank-button'),
 	serviceWindmillButton = document.getElementById('windmill-button'),
-	serviceAppointmentButton = document.getElementById('service-appointment-button');
+	serviceAppointmentButton = document.getElementById('service-appointment-button'),
+	appointmentDate = document.getElementById('date-picker--times--time');
 
 // Opens main widget when clicked
 contactWidget.addEventListener('click', () => {
@@ -50,6 +51,19 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 	contactWidgetOpen.style.bottom = '0';
 });
 
+const generateServiceTimes = (service) => {
+	const hoursArray = [];
+	// Get the current date
+	let currentDate = new Date();
+	// Get the current day
+	let currentDay = currentDate.getDay();
+	// Get the current time for Mountain Time
+	let currentTime = currentDate.toLocaleString('en-US', { timeZone: 'America/Denver' });
+	if (service === 'Borehole Video' || service === 'Water Well Inspection' || service === 'Service Appointment') {
+	}
+	return hoursArray;
+};
+
 // Restore eventlisteners for service cards that get removed when booking screen is opened
 const restoreEventListeners = () => {
 	// Borehole
@@ -62,7 +76,7 @@ const restoreEventListeners = () => {
 	serviceWellInspectionButton = document.getElementById('well-inspection-button');
 	serviceWellInspectionButton.addEventListener('click', () => {
 		bookingScreen(
-			'Well Inspection',
+			'Water Well Inspection',
 			'1 hour',
 			'../assets/img/service-water-well-inspection.jpg',
 			'Jesika Robinson'
@@ -72,19 +86,24 @@ const restoreEventListeners = () => {
 	// Pressure Tank
 	servicePressureTankButton = document.getElementById('pressure-tank-button');
 	servicePressureTankButton.addEventListener('click', () => {
-		bookingScreen('Pressure Tank', '3 hours', '../assets/img/service-pressure-tank.jpg', 'Jesika Robinson');
+		bookingScreen(
+			'Service Call - Pressure Tank',
+			'3 hours',
+			'../assets/img/service-pressure-tank.jpg',
+			'Jesika Robinson'
+		);
 	});
 
 	// Windmill
 	serviceWindmillButton = document.getElementById('windmill-button');
 	serviceWindmillButton.addEventListener('click', () => {
-		bookingScreen('Windmill', '3 hours', '../assets/img/service-windmill.jpg', 'Jesika Robinson');
+		bookingScreen('Service Call - Windmill', '3 hours', '../assets/img/service-windmill.jpg', 'Jesika Robinson');
 	});
 
 	// Appointment
 	serviceAppointmentButton = document.getElementById('service-appointment-button');
 	serviceAppointmentButton.addEventListener('click', () => {
-		bookingScreen('Appointment', '1 hour', '../assets/img/service-appointment.png', 'Jesika Robinson');
+		bookingScreen('Service Appointment', '1 hour', '../assets/img/service-appointment.png', 'Jesika Robinson');
 	});
 };
 
@@ -189,11 +208,11 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		<div id="date-picker--calendar">
 		<form id="date-picker--calendar--form">
 		<label for="date-picker--calendar--date">Date:</label>
-			<input type="date" id="date-picker--calendar-date" name="date-picker" />
+			<input type="date" id="date-picker--calendar--date" name="date-picker" />
 		</div>
 		<div id="date-picker--times">
 			<label for="date-picker--times--time">Time:</label>
-			<select id="date-picker--times-time" name="date-picker-time">
+			<select id="date-picker--times--time" name="date-picker-time">
 			<option value="9:00">9:00</option>
 			</select>
 		</div>
@@ -204,13 +223,16 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 		<div id="date-picker--right">
 		<div id="appointment-maker--modal-summary">
-			<h4>Booking Summary</h4>
-			<img src="${imageURL}" alt="Service Image" />
+			<h4 class="booking-title">Booking Summary</h4>
+			<img src="${imageURL}" alt="Service Image" class="service-image" />
 			<div id="appointment-maker--modal-body-summary">
-			<h5>${service}</h5>
-			<p>${time}</p>
-			<p>For a fee</p>
-			<p>${contact}</p>
+			<h5 class="booking-service-name">${service}</h5>
+			<hr class="summary-hr" />
+			<p class="booking-service-time">${time}</p>
+			<hr class="summary-hr" />
+			<p class="booking-service-fee">For a fee</p>
+			<hr class="summary-hr" />
+			<a href="mailto:jrrobinson@hydroresolutions.com">Contact:<p class="booking-service-contact"> ${contact}</p></a>
 		</div>
 		</div>
 		</div>
@@ -226,6 +248,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 // Borehole
 serviceBoreholeButton.addEventListener('click', () => {
 	bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
+	console.log(generateServiceTimes('Borehole Video'));
 });
 
 // Water Well
