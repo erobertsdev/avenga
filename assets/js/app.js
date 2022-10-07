@@ -13,8 +13,10 @@ let contactWidget = document.getElementById('contact-widget'),
 	servicePressureTankButton = document.getElementById('pressure-tank-button'),
 	serviceWindmillButton = document.getElementById('windmill-button'),
 	serviceAppointmentButton = document.getElementById('service-appointment-button'),
+	availableTimes,
 	appointmentTime,
-	appointmentDate;
+	appointmentDate,
+	appointmentButton;
 
 // Opens main widget when clicked
 contactWidget.addEventListener('click', () => {
@@ -52,33 +54,117 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 	contactWidgetOpen.style.bottom = '0';
 });
 
-const generateServiceTimes = (service) => {
-	const hoursArray = [ 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
-	let currentHour = new Date().getHours() + 1;
-	if (service === 'Borehole Video' || service === 'Water Well Inspection' || service === 'Service Appointment') {
-		// Filter out hours that have already passed
-		let filteredHours = hoursArray.filter((hour) => hour >= currentHour);
-		filteredHours.forEach((hour) => {
-			// Determine AM or PM
-			let amPm = hour >= 12 ? 'PM' : 'AM';
-			// convert hours to 12 hour format
-			let hour12 = hour > 12 ? hour - 12 : hour;
-			appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
-		});
-		return filteredHours;
+const compareDates = () => {
+	// Get current date Mountain Time
+	let currentDate = new Date();
+	// Convert to MST
+	currentDate.setHours(currentDate.getHours() - 7);
+	// convert to YYYY/MM/DD format
+	let currentDateString = currentDate.toISOString().slice(0, 10);
+	let myDate = document.getElementById('date-picker--calendar--date').value;
+	if (myDate < currentDateString) {
+		return 'past';
+	} else if (myDate > currentDateString) {
+		return 'future';
 	} else {
-		// Remove all items except 8, 11, 14
-		let filteredHours = hoursArray.filter((hour) => hour === 8 || hour === 11 || hour === 14);
-		// Filter out hours that have already passed
-		filteredHours = filteredHours.filter((hour) => hour >= currentHour);
-		filteredHours.forEach((hour) => {
-			// Determine AM or PM
-			let amPm = hour >= 12 ? 'PM' : 'AM';
-			// convert hours to 12 hour format
-			let hour12 = hour > 12 ? hour - 12 : hour;
-			appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
-		});
-		return filteredHours;
+		return 'today';
+	}
+};
+
+const generateServiceTimes = (service) => {
+	if (compareDates() === 'past') {
+		availableTimes.innerHTML = `<p>No Times Available</p>`;
+		//disable appointment button
+		appointmentButton.disabled = true;
+	} else {
+		const hoursArray = [ 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
+		// Check if date is today and if so, remove times that have already passed
+		if (compareDates() === 'today') {
+			let currentHour = new Date().getHours() + 1;
+			if (
+				service === 'Borehole Video' ||
+				service === 'Water Well Inspection' ||
+				service === 'Service Appointment'
+			) {
+				// Filter out hours that have already passed
+				let filteredHours = hoursArray.filter((hour) => hour >= currentHour);
+				if (filteredHours.length === 0) {
+					availableTimes.innerHTML = `<p>No Times Available</p>`;
+					appointmentButton.disabled = true;
+				} else {
+					availableTimes.innerHTML = `
+				<label for="date-picker--times--time">Time:</label>
+				<select id="date-picker--times--time" name="date-picker-time">
+				</select>
+			`;
+					appointmentTime = document.getElementById('date-picker--times--time');
+					appointmentButton.disabled = false;
+					filteredHours.forEach((hour) => {
+						// Determine AM or PM
+						let amPm = hour >= 12 ? 'PM' : 'AM';
+						// convert hours to 12 hour format
+						let hour12 = hour > 12 ? hour - 12 : hour;
+						appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+					});
+				}
+			} else {
+				// Remove all items except 8, 11, 14
+				let filteredHours = hoursArray.filter((hour) => hour === 8 || hour === 11 || hour === 14);
+				// Filter out hours that have already passed
+				filteredHours = filteredHours.filter((hour) => hour >= currentHour);
+				if (filteredHours.length === 0) {
+					availableTimes.innerHTML = `<p>No Times Available</p>`;
+					appointmentButton.disabled = true;
+				} else {
+					availableTimes.innerHTML = `
+				<label for="date-picker--times--time">Time:</label>
+				<select id="date-picker--times--time" name="date-picker-time">
+				</select>
+			`;
+					appointmentTime = document.getElementById('date-picker--times--time');
+					appointmentButton.disabled = false;
+					filteredHours.forEach((hour) => {
+						// Determine AM or PM
+						let amPm = hour >= 12 ? 'PM' : 'AM';
+						// convert hours to 12 hour format
+						let hour12 = hour > 12 ? hour - 12 : hour;
+						appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+					});
+				}
+			}
+		} else if (compareDates() === 'future') {
+			// Add all times
+			availableTimes.innerHTML = `
+			<label for="date-picker--times--time">Time:</label>
+			<select id="date-picker--times--time" name="date-picker-time">
+			</select>
+		`;
+			appointmentTime = document.getElementById('date-picker--times--time');
+			appointmentButton.disabled = false;
+			if (
+				service === 'Borehole Video' ||
+				service === 'Water Well Inspection' ||
+				service === 'Service Appointment'
+			) {
+				hoursArray.forEach((hour) => {
+					// Determine AM or PM
+					let amPm = hour >= 12 ? 'PM' : 'AM';
+					// convert hours to 12 hour format
+					let hour12 = hour > 12 ? hour - 12 : hour;
+					appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+				});
+			} else {
+				// Remove all items except 8, 11, 14
+				let filteredHours = hoursArray.filter((hour) => hour === 8 || hour === 11 || hour === 14);
+				filteredHours.forEach((hour) => {
+					// Determine AM or PM
+					let amPm = hour >= 12 ? 'PM' : 'AM';
+					// convert hours to 12 hour format
+					let hour12 = hour > 12 ? hour - 12 : hour;
+					appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+				});
+			}
+		}
 	}
 };
 
@@ -243,7 +329,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 			<h4 class="booking-title">Booking Summary</h4>
 			<img src="${imageURL}" alt="Service Image" class="service-image" />
 			<div id="appointment-maker--modal-body-summary">
-			<h5 class="booking-service-name">${service}</h5>
+			<h5 class="booking-service-name" id="booking-service">${service}</h5>
 			<hr class="summary-hr" />
 			<p class="booking-service-time">${time}</p>
 			<hr class="summary-hr" />
@@ -255,10 +341,15 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 	</div>
 	`;
-	appointmentTime = document.getElementById('date-picker--times--time');
+	availableTimes = document.getElementById('date-picker--times');
 	appointmentDate = document.getElementById('date-picker--calendar--date');
-	document.getElementById('back-container').addEventListener('click', () => {
-		restoreServiceModal();
+	appointmentButton = document.getElementById('date-picker--submit-button');
+	appointmentDate.addEventListener('change', () => {
+		let serviceName = document.getElementById('booking-service').innerHTML;
+		generateServiceTimes(serviceName, appointmentDate.value);
+		document.getElementById('back-container').addEventListener('click', () => {
+			restoreServiceModal();
+		});
 	});
 };
 
@@ -267,7 +358,6 @@ const bookingScreen = (service, time, imageURL, contact) => {
 // Borehole
 serviceBoreholeButton.addEventListener('click', () => {
 	bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
-	console.log(generateServiceTimes('Borehole Video'));
 });
 
 // Water Well
