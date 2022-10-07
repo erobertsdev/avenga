@@ -1267,6 +1267,7 @@ flex-grow: 1;
   font-size: 1em;
   cursor: pointer;
   transition: all 0.3s;
+  margin-top: 20px;
 }
 
 #date-picker--submit-button:hover {

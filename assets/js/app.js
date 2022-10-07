@@ -76,8 +76,12 @@ const compareDates = () => {
 };
 
 const generateServiceTimes = (service) => {
-	if (compareDates() === 'past' || compareDates() === 'weekend') {
-		availableTimes.innerHTML = `<p>No Times Available</p>`;
+	if (compareDates() === 'past') {
+		availableTimes.innerHTML = `<p>Please Choose a Future Date</p>`;
+		//disable appointment button
+		appointmentButton.disabled = true;
+	} else if (compareDates() === 'weekend') {
+		availableTimes.innerHTML = `<p>Closed on Weekends</p>`;
 		//disable appointment button
 		appointmentButton.disabled = true;
 	} else {
