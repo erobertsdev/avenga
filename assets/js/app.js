@@ -62,7 +62,11 @@ const compareDates = () => {
 	// convert to YYYY/MM/DD format
 	let currentDateString = currentDate.toISOString().slice(0, 10);
 	let myDate = document.getElementById('date-picker--calendar--date').value;
-	if (myDate < currentDateString) {
+	let myDateDay = new Date(myDate).getDay();
+	console.log(myDateDay);
+	if (myDateDay === 5 || myDateDay === 6) {
+		return 'weekend';
+	} else if (myDate < currentDateString) {
 		return 'past';
 	} else if (myDate > currentDateString) {
 		return 'future';
@@ -72,7 +76,7 @@ const compareDates = () => {
 };
 
 const generateServiceTimes = (service) => {
-	if (compareDates() === 'past') {
+	if (compareDates() === 'past' || compareDates() === 'weekend') {
 		availableTimes.innerHTML = `<p>No Times Available</p>`;
 		//disable appointment button
 		appointmentButton.disabled = true;
