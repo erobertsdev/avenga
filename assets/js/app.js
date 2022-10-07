@@ -180,7 +180,7 @@ const restoreEventListeners = () => {
 	// Borehole
 	serviceBoreholeButton = document.getElementById('borehole-button');
 	serviceBoreholeButton.addEventListener('click', () => {
-		bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
+		bookingScreen('Borehole Video', '1 hour', '../../assets/img/service-borehole.jpg', 'Jesika Robinson');
 	});
 
 	//Well Inspection
@@ -189,7 +189,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Water Well Inspection',
 			'1 hour',
-			'../assets/img/service-water-well-inspection.jpg',
+			'../../assets/img/service-water-well-inspection.jpg',
 			'Jesika Robinson'
 		);
 	});
@@ -200,7 +200,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Service Call - Pressure Tank',
 			'3 hours',
-			'../assets/img/service-pressure-tank.jpg',
+			'../../assets/img/service-pressure-tank.jpg',
 			'Jesika Robinson'
 		);
 	});
@@ -208,13 +208,13 @@ const restoreEventListeners = () => {
 	// Windmill
 	serviceWindmillButton = document.getElementById('windmill-button');
 	serviceWindmillButton.addEventListener('click', () => {
-		bookingScreen('Service Call - Windmill', '3 hours', '../assets/img/service-windmill.jpg', 'Jesika Robinson');
+		bookingScreen('Service Call - Windmill', '3 hours', '../../assets/img/service-windmill.jpg', 'Jesika Robinson');
 	});
 
 	// Appointment
 	serviceAppointmentButton = document.getElementById('service-appointment-button');
 	serviceAppointmentButton.addEventListener('click', () => {
-		bookingScreen('Service Appointment', '1 hour', '../assets/img/service-appointment.png', 'Jesika Robinson');
+		bookingScreen('Service Appointment', '1 hour', '../../assets/img/service-appointment.png', 'Jesika Robinson');
 	});
 };
 
@@ -305,7 +305,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 	appointmentModalBody.innerHTML = `
 	<div id="date-picker">
 	<div id="back-container">
-		<img id="back-button" src="../assets/img/back-arrow.png" alt="back arrow" />
+		<img id="back-button" src="../../assets/img/back-arrow.png" alt="back arrow" />
 		<p id="back-button-text">Go Back</p>
 	</div>
 	<div id="date-picker--left">
@@ -358,7 +358,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 
 // Borehole
 serviceBoreholeButton.addEventListener('click', () => {
-	bookingScreen('Borehole Video', '1 hour', '../assets/img/service-borehole.jpg', 'Jesika Robinson');
+	bookingScreen('Borehole Video', '1 hour', '../../assets/img/service-borehole.jpg', 'Jesika Robinson');
 });
 
 // Water Well
@@ -366,7 +366,7 @@ serviceWellInspectionButton.addEventListener('click', () => {
 	bookingScreen(
 		'Water Well Inspection',
 		'1 hour',
-		'../assets/img/service-water-well-inspection.jpg',
+		'../../assets/img/service-water-well-inspection.jpg',
 		'Jesika Robinson'
 	);
 });
@@ -376,17 +376,17 @@ servicePressureTankButton.addEventListener('click', () => {
 	bookingScreen(
 		'Service Call - Pressure Tank',
 		'3 hours',
-		'../assets/img/service-pressure-tank.jpg',
+		'../../assets/img/service-pressure-tank.jpg',
 		'Jesika Robinson'
 	);
 });
 
 // Windmill
 serviceWindmillButton.addEventListener('click', () => {
-	bookingScreen('Service Call - Windmill', '3 hours', '../assets/img/service-windmill.jpg', 'Jesika Robinson');
+	bookingScreen('Service Call - Windmill', '3 hours', '../../assets/img/service-windmill.jpg', 'Jesika Robinson');
 });
 
 // Service Appointment
 serviceAppointmentButton.addEventListener('click', () => {
-	bookingScreen('Service Appointment', '1 hour', '../assets/img/service-appointment.png', 'Jesika Robinson');
+	bookingScreen('Service Appointment', '1 hour', '../../assets/img/service-appointment.png', 'Jesika Robinson');
 });
