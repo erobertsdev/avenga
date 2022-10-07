@@ -34,7 +34,7 @@ contactWidgetClose.addEventListener('click', () => {
 	contactWidget.style.bottom = '0';
 });
 
-// Appointment Maker
+// ****** Appointment Maker ******
 // -----------------------------------
 // Opens appointment maker when clicked
 appointmentMaker.addEventListener('click', () => {
@@ -54,6 +54,7 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 	contactWidgetOpen.style.bottom = '0';
 });
 
+// Checks dates to populate available times
 const compareDates = () => {
 	// Get current date Mountain Time
 	let currentDate = new Date();
@@ -74,6 +75,7 @@ const compareDates = () => {
 	}
 };
 
+// Populates booking screen with service information
 const generateServiceTimes = (service) => {
 	if (compareDates() === 'past') {
 		availableTimes.innerHTML = `<p>Please Choose a Future Date</p>`;
@@ -357,15 +359,18 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 	</div>
 	`;
+
 	availableTimes = document.getElementById('date-picker--times');
+	availableTimes.style.visibility = 'hidden'; // Hides times until date is selected
 	appointmentDate = document.getElementById('date-picker--calendar--date');
 	appointmentButton = document.getElementById('date-picker--submit-button');
+	// Back button event listener
 	document.getElementById('back-container').addEventListener('click', () => {
 		restoreServiceModal();
 	});
 	appointmentDate.addEventListener('change', () => {
 		// Change availableTimes visibility
-		availableTimes.style.visibility = 'visible';
+		availableTimes.style.visibility = 'visible'; // Shows times after date is selected
 		let serviceName = document.getElementById('booking-service').innerHTML;
 		generateServiceTimes(serviceName);
 	});
