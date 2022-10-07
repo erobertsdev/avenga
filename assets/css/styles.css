@@ -1181,6 +1181,9 @@ flex-grow: 1;
   text-align: center;
 }
 
+#date-picker--times {
+  visibility: hidden;
+}
 
 #date-picker--left {
   height: 100%;
