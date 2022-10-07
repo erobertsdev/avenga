@@ -63,7 +63,6 @@ const compareDates = () => {
 	let currentDateString = currentDate.toISOString().slice(0, 10);
 	let myDate = document.getElementById('date-picker--calendar--date').value;
 	let myDateDay = new Date(myDate).getDay();
-	console.log(myDateDay);
 	if (myDateDay === 5 || myDateDay === 6) {
 		return 'weekend';
 	} else if (myDate < currentDateString) {
@@ -301,12 +300,6 @@ const restoreServiceModal = () => {
 	restoreEventListeners();
 };
 
-/* <div id="back-button">
-<h2>Go Back</h2>
-</div> 
-WHY DOES THIS BREAK EVERYTHING
-*/
-
 // Opens the calendar/booking summary screen
 const bookingScreen = (service, time, imageURL, contact) => {
 	appointmentModalBody.innerHTML = `
@@ -352,12 +345,12 @@ const bookingScreen = (service, time, imageURL, contact) => {
 	availableTimes = document.getElementById('date-picker--times');
 	appointmentDate = document.getElementById('date-picker--calendar--date');
 	appointmentButton = document.getElementById('date-picker--submit-button');
+	document.getElementById('back-container').addEventListener('click', () => {
+		restoreServiceModal();
+	});
 	appointmentDate.addEventListener('change', () => {
 		let serviceName = document.getElementById('booking-service').innerHTML;
-		generateServiceTimes(serviceName, appointmentDate.value);
-		document.getElementById('back-container').addEventListener('click', () => {
-			restoreServiceModal();
-		});
+		generateServiceTimes(serviceName);
 	});
 };
 
