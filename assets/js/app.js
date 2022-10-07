@@ -75,6 +75,7 @@ const compareDates = () => {
 	}
 };
 
+// TODO: Refactor this function
 // Populates booking screen with service information
 const generateServiceTimes = (service) => {
 	if (compareDates() === 'past') {
