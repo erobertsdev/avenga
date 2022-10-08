@@ -345,13 +345,13 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 	<form id="confirmation-screen--form" action="./assets/utils/appointment-form.php" method="POST">
 		<div class="confirmation-screen--form-group">
 			<label for="confirmation-screen--form-name">Name</label><br>
-			<input type="text" name="name" id="confirmation-screen--form-name" maxlength="50" required /><br>
+			<input type="text" name="name" placeholder="Name" id="confirmation-screen--form-name" maxlength="50" required /><br>
 			<label for="confirmation-screen--form-email">Email</label><br>
-			<input type="email" name="email" id="confirmation-screen--form-email" maxlength="50" required /><br>
+			<input type="email" name="email" placeholder="Email" id="confirmation-screen--form-email" maxlength="50" required /><br>
 			<label for="confirmation-screen--form-phone">Phone</label><br>
-			<input type="tel" name="phone" id="confirmation-screen--form-phone" maxlength="14" required /><br>
+			<input type="tel" name="phone" placeholder="Phone Number" id="confirmation-screen--form-phone" maxlength="14" required /><br>
 			<label for="autocomplete">Address For This Service</label><br>
-			<input type="text" name="address" id="autocomplete" maxlength="150" required /><br>
+			<input type="text" name="address" placeholder="Address" id="autocomplete" maxlength="150" required /><br>
 			<label for="confirmation-screen--form-residence">Type of Residence</label><br>
 			<select name="residence-type" id="confirmation-screen--form-residence" required><br>
 				<option value="House">House</option>
@@ -365,7 +365,7 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 				<option value="Residential">Residential</option>
 			</select><br>
 			<label for="confirmation-screen--form-description">Description/Notes</label><br>
-			<textarea name="description" id="confirmation-screen--form-description" cols="30" rows="10" maxlength="3000"></textarea>
+			<textarea name="description" placeholder="Additional details/questions" id="confirmation-screen--form-description" cols="30" rows="10" maxlength="3000"></textarea>
 			<div id="confirmation-screen--form-submit">
 				<button type="submit" id="confirmation-screen--form-submit-button">Submit Request</button>
 				<button type="button" id="confirmation-screen--form-cancel-button">Cancel</button>

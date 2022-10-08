@@ -1296,11 +1296,11 @@ height: 20px;
   color: var(--main-turquoise);
 }
 
-#date-picker input, #date-picker select, #confirmation-screen--left input, #confirmation-screen--left select {
+#date-picker input, #date-picker select, #confirmation-screen--left input, #confirmation-screen--left select, #confirmation-screen--left textarea {
   padding: 10px;
   border: 1px solid var(--main-turquoise);
   border-radius: 5px;
-  background-color: var(--main-white);
+  background-color: var(--main-lightgray);
   color: var(--main-turquoise);
   font-weight: bold;
   font-size: 1em;
@@ -1379,6 +1379,10 @@ height: 20px;
   font-weight: normal;
   margin-bottom: 10px;
   /* color: var(--main-turquoise); */
+}
+
+#confirmation-screen--form-name {
+  background-color: var(--main-lightgray);
 }
 
 /* Media Queries */
