@@ -1,4 +1,5 @@
 <?php
+// TODO: Refactor this and contact-form.php into one "email" php file
 
 if($_POST['name'] != '' && $_POST['email'] != '' && $_POST['phone'] != '' && $_POST['address'] != '' 
 && $_POST['residence-type'] != '' && $_POST['project-type'] != '' && $_POST['description'] != '') {
@@ -80,8 +81,8 @@ $message_customer .= '
 ';
 $message_customer .= '<hr></body></html>';
 
-$headers_avenga = ['From' => 'Avenga Service', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
-$headers_customer = ['From' => 'Avenga Service', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_avenga = ['From' => 'Avenga-Service', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_customer = ['From' => 'Avenga-Service', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 
 $avenga_email = mail($to, 'New Service Request', $message_avenga, $headers_avenga);
 $customer_email = mail($from, 'We received your service request!', $message_customer, $headers_customer);
