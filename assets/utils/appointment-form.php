@@ -13,7 +13,6 @@ $name = filter_var(substr($_POST['name'],0,50), FILTER_SANITIZE_FULL_SPECIAL_CHA
 $phone = filter_var(substr($_POST['phone'],0,12), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer phone number
 $address = filter_var(substr($_POST['address'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer address
 
-
 // **** EMAIL BODIES ****
 // Message body sent to Avenga
 $message_avenga = '
@@ -39,6 +38,10 @@ $message_avenga .= '
 <p><b>Email:</b> ' . $email . '</p>
 <p><b>Phone:</b> ' . $phone . '</p>
 <p><b>Address:</b> ' . $address . '</p>
+<p><b>Service:</b> ' . $_POST['service-type'] . '</p>
+<p><b>Appointment Length:</b> ' . $_POST['service-length'] . '</p>
+<p><b>Appointment Date:</b> ' . $_POST['service-date'] . '</p>
+<p><b>Appointment Time:</b> ' . $_POST['service-time'] . '</p>
 <p><b>Residence Type:</b> ' . $_POST['residence-type'] . '</p>
 <p><b>Project Type:</b> ' . $_POST['project-type'] . '</p>
 <p><b>Message:</b> ' . htmlspecialchars(substr($_POST['description'],0,3000)) . '</p>
@@ -70,11 +73,14 @@ body {
 <hr>
 <p><b>Name:</b> ' . $name . '</p>
 ';
-// Message trimmed to 3000 characters and any html removed from message for security
 $message_customer .= '
 <p><b>Email:</b> ' . $email . '</p>
 <p><b>Phone:</b> ' . $phone . '</p>
 <p><b>Address:</b> ' . $address . '</p>
+<p><b>Service:</b> ' . $_POST['service-type'] . '</p>
+<p><b>Appointment Length:</b> ' . $_POST['service-length'] . '</p>
+<p><b>Appointment Date:</b> ' . $_POST['service-date'] . '</p>
+<p><b>Appointment Time:</b> ' . $_POST['service-time'] . '</p>
 <p><b>Residence Type:</b> ' . $_POST['residence-type'] . '</p>
 <p><b>Project Type:</b> ' . $_POST['project-type'] . '</p>
 <p><b>Message:</b> ' . htmlspecialchars(substr($_POST['description'],0,3000)) . '</p>

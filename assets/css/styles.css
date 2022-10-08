@@ -1429,6 +1429,12 @@ height: 20px;
   }
 }
 
+@media screen and (max-width: 1300px) {
+  #appointment-maker--modal-body-services {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 @media screen and (max-width: 1250px) {
   #header {
     text-align: center;

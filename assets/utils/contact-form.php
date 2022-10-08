@@ -3,15 +3,15 @@
 if($_POST['name'] != '' && $_POST['email'] != '' && $_POST['message'] != '' && $_POST['phone'] != '' && $_POST['address'] != '') {
 
 // All inputs trimmed/filtered for security
-$to = 'erobertsdev@gmail.com';
+$to = 'erobertsdev@gmail.com'; // Email sent to Avenga
 $email = str_replace(array("\r", "\n", "%0a", "%0d"), '', substr($_POST['email'],0,80));
 $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 $reply_email = 'jrrobinson@hydroresolutions.com';
-$from = $_POST['email'];
-$name = filter_var(substr($_POST['name'],0,50), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$business_name = filter_var(substr($_POST['business-name'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$phone = filter_var(substr($_POST['phone'],0,12), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$address = filter_var(substr($_POST['address'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$from = $_POST['email']; // Customer email
+$name = filter_var(substr($_POST['name'],0,50), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer name
+$business_name = filter_var(substr($_POST['business-name'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer business name
+$phone = filter_var(substr($_POST['phone'],0,12), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer phone number
+$address = filter_var(substr($_POST['address'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer address
 
 
 // **** EMAIL BODIES ****

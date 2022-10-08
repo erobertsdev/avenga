@@ -370,6 +370,10 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 				<button type="submit" id="confirmation-screen--form-submit-button">Submit Request</button>
 				<button type="button" id="confirmation-screen--form-cancel-button">Cancel</button>
 			</div>
+			<input name="service-type" type="hidden" value="${title}" id="confirmation-screen--form-title" />
+			<input name="service-date" type="hidden" value="${apptDate}" id="confirmation-screen--form-date" />
+			<input name="service-length" type="hidden" value="${serviceTime}" id="confirmation-screen--form-time" />
+			<input name="service-time" type="hidden" value="${apptTime}" id="confirmation-screen--form-time" />
 			</div>
 			</form>
 			</div>
@@ -378,9 +382,10 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 						<div id="appointment-maker--modal-body-confirmation">
 							<h5 id="appointment-maker--modal-body-confirmation-title">${title}</h5>
 							<hr class="summary-hr" />
-							<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
-							<p class="appointment-maker--modal-body-confirmation-date">Appointment Length:<span class="appt-info"> ${serviceTime}</span></p>
 								<img src="${img}" id="confirmation-img" alt="Service Image" />
+								<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
+								<p class="appointment-maker--modal-body-confirmation-date">Appointment Length:<span class="appt-info"> ${serviceTime}</span></p>
+								<hr class="summary-hr" />
 								<img src="https://eroberts.dev/avenga/assets/icons/calendar-icon.png" alt="Calendar Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-date">Appointment Date:<span class="appt-info"> ${apptDate}</span></p>
 								<hr class="summary-hr" />
@@ -432,12 +437,10 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 		<div id="date-picker--right">
 		<div id="appointment-maker--modal-summary">
-			<h4 class="booking-title">Summary</h4>
+			<h4 class="booking-title" id="booking-service">${service}</h4>
 			<hr class="summary-hr" />
 			<img src="${imageURL}" alt="Service Image" class="service-image" />
 			<div id="appointment-maker--modal-body-summary">
-			<h5 class="booking-service-name" id="booking-service">${service}</h5>
-			<hr class="summary-hr" />
 			<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
 			<p class="booking-service-time" id="booking-service-time">${time}</p>
 			<hr class="summary-hr" />
