@@ -93,11 +93,13 @@ if ($avenga_email) {
   header( 'refresh:3;url=https://eroberts.dev/avenga/index.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
-  <h1 style="color:green;">Appointment request ent successfully!</h1>
+  <div>
+  <h1 style="color:green;">Appointment request sent successfully!</h1>
   <h2 style="color:green;">You will also receive a confirmation email. We will be in touch shortly!</h2>
   <br>
-  <h3>Redirecting to home page in 3 seconds...<br></h3>
-  <p>If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>.</p>
+  <h3>Redirecting to home page in 8 seconds...<br></h3>
+  <p>If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>. Or you can close this window.</p>
+  </div>
   </div>
 ';
   die();
@@ -107,10 +109,11 @@ if ($avenga_email) {
   header( 'refresh:3;url=https://eroberts.dev/avenga/contact.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
+  </div>
   <h1 style="color:red;">Sorry, an error occurred while sending the request. Please try again.</h1>
-  <br><h2>Redirecting to contact form in 3 seconds...</h2><br>
+  <br><h2>Redirecting to contact form in 8 seconds...</h2><br>
   <p>If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>
-  .</p></div>
+  . Or you can close this window.</p></div>
 ';
   die();
 }

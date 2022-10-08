@@ -912,7 +912,7 @@ flex-grow: 1;
   text-align: center;
 }
 
-#appointment-maker--modal-form, #confirmation-screen--form {
+#appointment-maker--modal-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
@@ -1263,8 +1263,10 @@ flex-grow: 1;
   margin-bottom: 10px;
 }
 
-.service-image {
+.service-image, #confirmation-img {
   width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--main-darkgray);
 }
 
 .booking-service-name, .booking-service-time, .booking-service-fee {
@@ -1280,6 +1282,11 @@ flex-grow: 1;
   color: var(--main-turquoise);
   margin-bottom: 10px;
   padding-bottom: 10px;
+}
+
+img.summary-icon {
+width: 20px;
+height: 20px;
 }
 
 
@@ -1375,6 +1382,29 @@ flex-grow: 1;
 }
 
 /* Media Queries */
+@media screen and (max-width: 1490px) {
+  #confirmation-screen {
+    flex-direction: column;
+  }
+  #confirmation-screen--right {
+    order: -1;
+  }
+  #confirmation-screen--left {
+    order: 1;
+    width: 80%;
+  }
+  #confirmation-screen--left textarea {
+    width: 90%;
+  }
+  #confirmation-screen--form {
+    text-align: center;
+    margin: 0 auto;
+  }
+  #back-container {
+    order: -2;
+  }
+}
+
 @media screen and (max-width: 1450px) {
   /* stack grid columns on top of each other */
   #our-story--body, #services--body, #contact--body {
@@ -1384,6 +1414,18 @@ flex-grow: 1;
   .our-story--img-container, .services--img-container, .contact--img-container {
     margin: 20px auto;
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 1370px) {
+  #date-picker {
+    flex-direction: column;
+  }
+  #back-container {
+    order: -2;
+  }
+  #date-picker--right {
+    order: -1;
   }
 }
 

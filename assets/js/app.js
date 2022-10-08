@@ -350,8 +350,8 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 			<input type="email" name="email" id="confirmation-screen--form-email" maxlength="50" required /><br>
 			<label for="confirmation-screen--form-phone">Phone</label><br>
 			<input type="tel" name="phone" id="confirmation-screen--form-phone" maxlength="14" required /><br>
-			<label for="confirmation-screen--form-address">Address For This Service</label><br>
-			<input type="text" name="address" id="confirmation-screen--form-address" maxlength="100" required /><br>
+			<label for="autocomplete">Address For This Service</label><br>
+			<input type="text" name="address" id="autocomplete" maxlength="150" required /><br>
 			<label for="confirmation-screen--form-residence">Type of Residence</label><br>
 			<select name="residence-type" id="confirmation-screen--form-residence" required><br>
 				<option value="House">House</option>
@@ -378,12 +378,16 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 						<div id="appointment-maker--modal-body-confirmation">
 							<h5 id="appointment-maker--modal-body-confirmation-title">${title}</h5>
 							<hr class="summary-hr" />
+							<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
 							<p class="appointment-maker--modal-body-confirmation-date">Appointment Length:<span class="appt-info"> ${serviceTime}</span></p>
 								<img src="${img}" id="confirmation-img" alt="Service Image" />
+								<img src="https://eroberts.dev/avenga/assets/icons/calendar-icon.png" alt="Calendar Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-date">Appointment Date:<span class="appt-info"> ${apptDate}</span></p>
 								<hr class="summary-hr" />
+								<img src="https://eroberts.dev/avenga/assets/icons/service-time-icon.png" alt="Service Time Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-time">Appointment Time:<span class="appt-info"> ${apptTime}</p><p> MDT (UTC/GMT -6 hours)</span></p>
 								<hr class="summary-hr" />
+								<img src="https://eroberts.dev/avenga/assets/icons/email-icon.png" alt="Email Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-contact">Contact: 
 								<a href="mailto:jrrobinson@hydroresolutions.com"><span class="appt-info">${name}</span>
 								</p></a>
@@ -428,16 +432,20 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		</div>
 		<div id="date-picker--right">
 		<div id="appointment-maker--modal-summary">
-			<h4 class="booking-title">Booking Summary</h4>
+			<h4 class="booking-title">Summary</h4>
+			<hr class="summary-hr" />
 			<img src="${imageURL}" alt="Service Image" class="service-image" />
 			<div id="appointment-maker--modal-body-summary">
 			<h5 class="booking-service-name" id="booking-service">${service}</h5>
 			<hr class="summary-hr" />
+			<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
 			<p class="booking-service-time" id="booking-service-time">${time}</p>
 			<hr class="summary-hr" />
+			<img src="https://eroberts.dev/avenga/assets/icons/money-icon.png" alt="Money Icon" class="summary-icon" />
 			<p class="booking-service-fee">For a fee</p>
 			<hr class="summary-hr" />
-			<p class="booking-service-contact">Contact: <a href="mailto:info@hydroresolutions.com">${contact}</p></a>
+			<img src="https://eroberts.dev/avenga/assets/icons/email-icon.png" alt="Email Icon" class="summary-icon" />
+			<p class="booking-service-contact">Contact: <a href="mailto:jrrobinson@hydroresolutions.com">${contact}</p></a>
 		</div>
 		</div>
 		</div>
