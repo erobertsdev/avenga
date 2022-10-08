@@ -335,7 +335,7 @@ const restoreServiceModal = () => {
 // Confirmation Screen
 const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) => {
 	appointmentModalBody.innerHTML = `
-	<h4 id="appointment-maker--modal-title">Confirm your appointment:</h4>
+	<h4 id="appointment-maker--modal-title">Service Details:</h4>
 	<div id="confirmation-screen">
 	<div id="back-container">
 		<img id="back-button" src="https://eroberts.dev/avenga/assets/img/back-arrow.png" alt="back arrow" />
@@ -367,7 +367,7 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 			<label for="confirmation-screen--form-description">Description/Notes</label><br>
 			<textarea name="description" id="confirmation-screen--form-description" cols="30" rows="10" maxlength="3000"></textarea>
 			<div id="confirmation-screen--form-submit">
-				<button type="submit" id="confirmation-screen--form-submit-button">Book Appointment</button>
+				<button type="submit" id="confirmation-screen--form-submit-button">Submit Request</button>
 				<button type="button" id="confirmation-screen--form-cancel-button">Cancel</button>
 			</div>
 			</div>
