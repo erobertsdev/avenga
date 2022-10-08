@@ -2,16 +2,19 @@
 
 if($_POST['name'] != '' && $_POST['email'] != '' && $_POST['message'] != '' && $_POST['phone'] != '' && $_POST['address'] != '') {
 
-// All inputs trimmed for security
+// All inputs trimmed/filtered for security
 $to = 'erobertsdev@gmail.com';
-$email = substr($_POST['email'],0,80);
+$email = str_replace(array("\r", "\n", "%0a", "%0d"), '', substr($_POST['email'],0,80));
+$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 $reply_email = 'jrrobinson@hydroresolutions.com';
 $from = $_POST['email'];
-$name = substr($_POST['name'],0,50);
-$business_name = substr($_POST['business-name'],0,100);
-$phone = substr($_POST['phone'],0,20);
-$address = substr($_POST['address'],0,100);
+$name = filter_var(substr($_POST['name'],0,50), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$business_name = filter_var(substr($_POST['business-name'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$phone = filter_var(substr($_POST['phone'],0,12), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$address = filter_var(substr($_POST['address'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+
+// **** EMAIL BODIES ****
 // Message body sent to Avenga
 $message_avenga = '
 <!DOCTYPE html>
@@ -95,7 +98,6 @@ if ($avenga_email) {
     // Redirect back to index.html after 3 seconds
   header( 'refresh:3;url=https://eroberts.dev/avenga/index.html' );
   echo '
-
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
   <h1 style="color:green;">Message sent successfully!</h1>
   <br>

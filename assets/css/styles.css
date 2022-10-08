@@ -884,8 +884,8 @@ flex-grow: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60vw;
-  height: 80vh;
+  width: 70vw;
+  height: 90vh;
   overflow-y: scroll;
   background-color: var(--main-white);
   border-radius: 5px;
@@ -909,26 +909,27 @@ flex-grow: 1;
   font-size: 1.5em;
   margin-bottom: 10px;
   color: var(--main-black);
+  text-align: center;
 }
 
-#appointment-maker--modal-form {
+#appointment-maker--modal-form, #confirmation-screen--form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 }
 
-#appointment-maker--modal-form input {
+#appointment-maker--modal-form input, #confirmation-screen--form input {
   padding: 10px;
   border: 1px solid var(--main-gray);
   border-radius: 5px;
 }
 
-#appointment-maker--modal-form input:focus {
+#appointment-maker--modal-form input:focus, #confirmation-screen--form input:focus {
   outline: none;
   border: 1px solid var(--main-turquoise);
 }
 
-#appointment-maker--modal-form input[type="submit"] {
+#appointment-maker--modal-form input[type="submit"], #confirmation-screen--form input[type="submit"] {
   grid-column: 1 / 3;
   background-color: var(--main-turquoise);
   color: var(--main-white);
@@ -1136,6 +1137,11 @@ flex-grow: 1;
   visibility: hidden;
 }
 
+.disabled {
+  background-color: var(--main-darkgray)!important;
+  cursor: not-allowed!important;
+}
+
 #back-container {
   display: flex;
   align-items: center;
@@ -1201,6 +1207,7 @@ flex-grow: 1;
 }
 
 #appointment-maker--modal-summary {
+  padding: 20px;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -1211,6 +1218,41 @@ flex-grow: 1;
   font-size: 1.2em;
   text-align: center;
   box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px;
+}
+
+#confirmation-screen {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+  background-color: var(--main-white);
+  color: var(--main-turquoise);
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#confirmation-screen--left {
+  height: 100%;
+  margin-right: 10px;
+  padding: 20px;
+  flex: 1 1 auto;
+}
+
+#confirmation-screen--right {
+  height: 100%;
+  padding: 20px;
+  flex: 1 1 auto;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 10px;
+}
+
+#confirmation-img {
+  width: 100%;
 }
 
 .booking-title {
@@ -1237,7 +1279,6 @@ flex-grow: 1;
   font-weight: bold;
   color: var(--main-turquoise);
   margin-bottom: 10px;
-  text-decoration: underline;
   padding-bottom: 10px;
 }
 
@@ -1248,8 +1289,7 @@ flex-grow: 1;
   color: var(--main-turquoise);
 }
 
-#date-picker input, #date-picker select {
-  /* width: 100%; */
+#date-picker input, #date-picker select, #confirmation-screen--left input, #confirmation-screen--left select {
   padding: 10px;
   border: 1px solid var(--main-turquoise);
   border-radius: 5px;
@@ -1260,7 +1300,21 @@ flex-grow: 1;
   margin-bottom: 10px;
 }
 
-#date-picker--submit-button {
+#confirmation-screen--left input, #confirmation-screen--left select {
+  color: var(--main-black);
+}
+
+#confirmation-screen--left input {
+  width: 100%;
+}
+
+#confirmation-screen--left label {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--main-turquoise);
+}
+
+#date-picker--submit-button, #confirmation-screen--form-submit-button, #confirmation-screen--form-cancel-button {
   padding: 10px;
   border: 1px solid var(--main-turquoise);
   border-radius: 5px;
@@ -1273,8 +1327,30 @@ flex-grow: 1;
   margin-top: 20px;
 }
 
-#date-picker--submit-button:hover {
-  filter: brightness(0.8);
+#confirmation-screen--form-cancel-button {
+  margin-left: 40px;
+  background-color: var(--main-white);
+  color: var(--main-turquoise);
+  margin-top: 10px;
+}
+
+#date-picker--submit-button:hover, #confirmation-screen--form-submit-button:hover {
+  filter: brightness(1.2);
+}
+
+#confirmation-screen--form-cancel-button:hover {
+  background-color:rgba(0, 0, 0, 0.3);
+}
+
+#confirmation-screen--form input:focus {
+  outline: none;
+  outline: 1px solid var(--main-turquoise);
+}
+
+#appointment-maker--modal-body-confirmation-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--main-turquoise);
 }
 
 .summary-hr {
@@ -1283,6 +1359,19 @@ flex-grow: 1;
   background-color: var(--main-gray);
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.appt-info {
+  /* font-size: 1.2em; */
+  font-weight: bold;
+  color: var(--main-black);
+}
+
+#appointment-time-title {
+  font-size: 0.9em;
+  font-weight: normal;
+  margin-bottom: 10px;
+  /* color: var(--main-turquoise); */
 }
 
 /* Media Queries */

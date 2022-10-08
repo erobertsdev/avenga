@@ -54,6 +54,20 @@ appointmentMakerModalCloseButton.addEventListener('click', () => {
 	contactWidgetOpen.style.bottom = '0';
 });
 
+// Enable/disable submit button
+const enableSubmitButton = () => {
+	appointmentButton = document.getElementById('date-picker--submit-button');
+	appointmentButton.disabled = false;
+	appointmentButton.classList.remove('disabled');
+};
+
+// Disable submit button
+const disableSubmitButton = () => {
+	appointmentButton = document.getElementById('date-picker--submit-button');
+	appointmentButton.disabled = true;
+	appointmentButton.classList.add('disabled');
+};
+
 // Checks dates to populate available times
 const compareDates = () => {
 	// Get current date Mountain Time
@@ -81,11 +95,11 @@ const generateServiceTimes = (service) => {
 	if (compareDates() === 'past') {
 		availableTimes.innerHTML = `<p>Please Choose a Future Date</p>`;
 		//disable appointment button
-		appointmentButton.disabled = true;
+		disableSubmitButton();
 	} else if (compareDates() === 'weekend') {
 		availableTimes.innerHTML = `<p>Closed on Weekends</p>`;
 		//disable appointment button
-		appointmentButton.disabled = true;
+		disableSubmitButton();
 	} else {
 		const hoursArray = [ 8, 9, 10, 11, 12, 13, 14, 15, 16 ];
 		// Check if date is today and if so, remove times that have already passed
@@ -100,7 +114,7 @@ const generateServiceTimes = (service) => {
 				let filteredHours = hoursArray.filter((hour) => hour >= currentHour);
 				if (filteredHours.length === 0) {
 					availableTimes.innerHTML = `<p>No Times Available</p>`;
-					appointmentButton.disabled = true;
+					disableSubmitButton();
 				} else {
 					availableTimes.innerHTML = `
 				<label for="date-picker--times--time">Time:</label>
@@ -108,13 +122,13 @@ const generateServiceTimes = (service) => {
 				</select>
 			`;
 					appointmentTime = document.getElementById('date-picker--times--time');
-					appointmentButton.disabled = false;
+					enableSubmitButton();
 					filteredHours.forEach((hour) => {
 						// Determine AM or PM
 						let amPm = hour >= 12 ? 'PM' : 'AM';
 						// convert hours to 12 hour format
 						let hour12 = hour > 12 ? hour - 12 : hour;
-						appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+						appointmentTime.innerHTML += `<option value="${hour12}:00 ${amPm}">${hour12}:00 ${amPm}</option>`;
 					});
 				}
 			} else {
@@ -132,13 +146,13 @@ const generateServiceTimes = (service) => {
 				</select>
 			`;
 					appointmentTime = document.getElementById('date-picker--times--time');
-					appointmentButton.disabled = false;
+					enableSubmitButton();
 					filteredHours.forEach((hour) => {
 						// Determine AM or PM
 						let amPm = hour >= 12 ? 'PM' : 'AM';
 						// convert hours to 12 hour format
 						let hour12 = hour > 12 ? hour - 12 : hour;
-						appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+						appointmentTime.innerHTML += `<option value="${hour12}:00 ${amPm}">${hour12}:00 ${amPm}</option>`;
 					});
 				}
 			}
@@ -150,7 +164,7 @@ const generateServiceTimes = (service) => {
 			</select>
 		`;
 			appointmentTime = document.getElementById('date-picker--times--time');
-			appointmentButton.disabled = false;
+			enableSubmitButton();
 			if (
 				service === 'Borehole Video' ||
 				service === 'Water Well Inspection' ||
@@ -161,7 +175,7 @@ const generateServiceTimes = (service) => {
 					let amPm = hour >= 12 ? 'PM' : 'AM';
 					// convert hours to 12 hour format
 					let hour12 = hour > 12 ? hour - 12 : hour;
-					appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+					appointmentTime.innerHTML += `<option value="${hour12}:00 ${amPm}">${hour12}:00 ${amPm}</option>`;
 				});
 			} else {
 				// Remove all items except 8, 11, 14
@@ -171,7 +185,7 @@ const generateServiceTimes = (service) => {
 					let amPm = hour >= 12 ? 'PM' : 'AM';
 					// convert hours to 12 hour format
 					let hour12 = hour > 12 ? hour - 12 : hour;
-					appointmentTime.innerHTML += `<option value="${hour12}">${hour12}:00 ${amPm}</option>`;
+					appointmentTime.innerHTML += `<option value="${hour12}:00 ${amPm}">${hour12}:00 ${amPm}</option>`;
 				});
 			}
 		}
@@ -318,6 +332,74 @@ const restoreServiceModal = () => {
 	restoreEventListeners();
 };
 
+// Confirmation Screen
+const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) => {
+	appointmentModalBody.innerHTML = `
+	<h4 id="appointment-maker--modal-title">Confirm your appointment:</h4>
+	<div id="confirmation-screen">
+	<div id="back-container">
+		<img id="back-button" src="https://eroberts.dev/avenga/assets/img/back-arrow.png" alt="back arrow" />
+		<p id="back-button-text">Go Back</p>
+	</div>
+	<div id="confirmation-screen--left">
+	<form id="confirmation-screen--form" action="./assets/utils/appointment-form.php" method="POST">
+		<div class="confirmation-screen--form-group">
+			<label for="confirmation-screen--form-name">Name</label><br>
+			<input type="text" name="name" id="confirmation-screen--form-name" maxlength="50" required /><br>
+			<label for="confirmation-screen--form-email">Email</label><br>
+			<input type="email" name="email" id="confirmation-screen--form-email" maxlength="50" required /><br>
+			<label for="confirmation-screen--form-phone">Phone</label><br>
+			<input type="tel" name="phone" id="confirmation-screen--form-phone" maxlength="14" required /><br>
+			<label for="confirmation-screen--form-address">Address For This Service</label><br>
+			<input type="text" name="address" id="confirmation-screen--form-address" maxlength="100" required /><br>
+			<label for="confirmation-screen--form-residence">Type of Residence</label><br>
+			<select name="residence" id="confirmation-screen--form-residence" required><br>
+				<option value="House">House</option>
+				<option value="Townhouse">Townhouse</option>
+				<option value="Condo">Apartment/Condo</option>
+				<option value="Business">Other</option>
+			</select><br>
+			<label for="confirmation-screen--form-type">Project Type</label><br>
+			<select name="type" id="confirmation-screen--form-type" required>
+				<option value="Commercial">Commercial</option>
+				<option value="Residential">Residential</option>
+			</select><br>
+			<label for="confirmation-screen--form-description">Description/Notes</label><br>
+			<textarea name="description" id="confirmation-screen--form-description" cols="30" rows="10" maxlength="3000"></textarea>
+			<div id="confirmation-screen--form-submit">
+				<button type="submit" id="confirmation-screen--form-submit-button">Book Appointment</button>
+				<button type="button" id="confirmation-screen--form-cancel-button">Cancel</button>
+			</div>
+			</div>
+			</form>
+			</div>
+
+			<div id="confirmation-screen--right">
+						<div id="appointment-maker--modal-body-confirmation">
+							<h5 id="appointment-maker--modal-body-confirmation-title">${title}</h5>
+							<hr class="summary-hr" />
+							<p class="appointment-maker--modal-body-confirmation-date">Appointment Length:<span class="appt-info"> ${serviceTime}</span></p>
+								<img src="${img}" id="confirmation-img" alt="Service Image" />
+								<p class="appointment-maker--modal-body-confirmation-date">Appointment Date:<span class="appt-info"> ${apptDate}</span></p>
+								<hr class="summary-hr" />
+								<p class="appointment-maker--modal-body-confirmation-time">Appointment Time:<span class="appt-info"> ${apptTime}</span></p>
+								<hr class="summary-hr" />
+								<p class="appointment-maker--modal-body-confirmation-contact">Contact: 
+								<a href="mailto:jrrobinson@hydroresolutions.com"><span class="appt-info">${name}</span>
+								</p></a>
+						</div>
+		</div>
+						`;
+	// Back button event listener
+	document.getElementById('back-container').addEventListener('click', () => {
+		bookingScreen(title, serviceTime, img, name);
+	});
+	// Cancel button event listener
+	document.getElementById('confirmation-screen--form-cancel-button').addEventListener('click', () => {
+		bookingScreen(title, serviceTime, img, name);
+	});
+};
+
 // Opens the calendar/booking summary screen
 const bookingScreen = (service, time, imageURL, contact) => {
 	appointmentModalBody.innerHTML = `
@@ -328,6 +410,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 	</div>
 	<div id="date-picker--left">
 		<h4 id="appointment-maker--modal-title">Select date & time:</h4>
+		<p id="appointment-time-title">(All times are in Mountain Time)</p>
 		<div id="date-picker--calendar">
 		<form id="date-picker--calendar--form">
 		<label for="date-picker--calendar--date">Date:</label>
@@ -339,7 +422,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 			</select>
 		</div>
 		<div id="date-picker--submit">
-			<button id="date-picker--submit-button">Submit</button>
+			<button id="date-picker--submit-button" class="disabled" disabled="true">Next</button>
 		</div>
 		</form>
 		</div>
@@ -350,11 +433,11 @@ const bookingScreen = (service, time, imageURL, contact) => {
 			<div id="appointment-maker--modal-body-summary">
 			<h5 class="booking-service-name" id="booking-service">${service}</h5>
 			<hr class="summary-hr" />
-			<p class="booking-service-time">${time}</p>
+			<p class="booking-service-time" id="booking-service-time">${time}</p>
 			<hr class="summary-hr" />
 			<p class="booking-service-fee">For a fee</p>
 			<hr class="summary-hr" />
-			<a href="mailto:jrrobinson@hydroresolutions.com">Contact:<p class="booking-service-contact"> ${contact}</p></a>
+			<p class="booking-service-contact">Contact: <a href="mailto:jrrobinson@hydroresolutions.com">${contact}</p></a>
 		</div>
 		</div>
 		</div>
@@ -374,6 +457,26 @@ const bookingScreen = (service, time, imageURL, contact) => {
 		availableTimes.style.visibility = 'visible'; // Shows times after date is selected
 		let serviceName = document.getElementById('booking-service').innerHTML;
 		generateServiceTimes(serviceName);
+	});
+
+	// Event listener for the submit button
+	appointmentButton.addEventListener('click', () => {
+		if (!appointmentButton.classList.contains('disabled') && !appointmentButton.disabled) {
+			// Get the date and time from the form
+			let apptDate = document.getElementById('date-picker--calendar--date').value;
+			// Convert apptDate to MM/DD/YYYY format
+			let dateArray = apptDate.split('-');
+			let month = dateArray[1];
+			let day = dateArray[2];
+			let year = dateArray[0];
+			apptDate = month + '-' + day + '-' + year;
+			let apptTime = document.getElementById('date-picker--times--time').value;
+			let serviceTitle = document.getElementById('booking-service').innerHTML;
+			let serviceTime = document.getElementById('booking-service-time').innerHTML;
+			// Send the date and time to the confirmation screen
+			// confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name)
+			confirmationScreen(serviceTitle, apptDate, apptTime, serviceTime, imageURL, contact);
+		}
 	});
 };
 
