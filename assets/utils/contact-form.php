@@ -96,26 +96,26 @@ $customer_email = mail($from, 'Thank you for contacting Avenga!', $message_custo
 // True if email sent successfully
 if ($avenga_email) {
     // Redirect back to index.html after 3 seconds
-  header( 'refresh:3;url=https://eroberts.dev/avenga/index.html' );
+  header( 'refresh:8;url=https://eroberts.dev/avenga/index.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
-  <h1 style="color:green;">Message sent successfully!</h1>
+  <h2 style="color:green;">Message sent successfully!</h2>
   <br>
-  Redirecting to home page in 3 seconds...<br>
-  If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>.
+  Redirecting to home page in 8 seconds...<br>
+  If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>. Or you can close this window.
   </div>
 ';
   die();
 
 } else {
     // Redirect back to contact.html after 3 seconds
-  header( 'refresh:3;url=https://eroberts.dev/avenga/contact.html' );
+  header( 'refresh:8;url=https://eroberts.dev/avenga/contact.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
-  <h1 style="color:red;">Sorry, an error occurred while sending the message. Please try again.</h1>
-  <br> Redirecting to contact form in 3 seconds...<br>
-  If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>
-  </div>.
+  <h2 style="color:red;">Sorry, an error occurred while sending the message. Please try again.</h2>
+  <br> Redirecting to contact form in 8 seconds...<br>
+  If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>. Or you can close this window.
+  </div> 
 ';
   die();
 }

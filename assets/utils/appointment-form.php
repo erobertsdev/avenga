@@ -90,11 +90,11 @@ $customer_email = mail($from, 'We received your service request!', $message_cust
 // True if email sent successfully
 if ($avenga_email) {
     // Redirect back to index.html after 3 seconds
-  header( 'refresh:3;url=https://eroberts.dev/avenga/index.html' );
+  header( 'refresh:8;url=https://eroberts.dev/avenga/index.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
   <div>
-  <h1 style="color:green;">Appointment request sent successfully!</h1>
+  <h2 style="color:green;">Appointment request sent successfully!</h2>
   <h2 style="color:green;">You will also receive a confirmation email. We will be in touch shortly!</h2>
   <br>
   <h3>Redirecting to home page in 8 seconds...<br></h3>
@@ -106,11 +106,11 @@ if ($avenga_email) {
 
 } else {
     // Redirect back to contact.html after 3 seconds
-  header( 'refresh:3;url=https://eroberts.dev/avenga/contact.html' );
+  header( 'refresh:8;url=https://eroberts.dev/avenga/contact.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
   </div>
-  <h1 style="color:red;">Sorry, an error occurred while sending the request. Please try again.</h1>
+  <h2 style="color:red;">Sorry, an error occurred while sending the request. Please try again.</h2>
   <br><h2>Redirecting to contact form in 8 seconds...</h2><br>
   <p>If you are not redirected, please <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>
   . Or you can close this window.</p></div>
