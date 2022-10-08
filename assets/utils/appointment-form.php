@@ -100,8 +100,8 @@ if ($avenga_email) {
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;>
   <div>
-  <h2 style="color:green;">Appointment request sent successfully!</h2>
-  <h2 style="color:green;">You will also receive a confirmation email. We will be in touch shortly!</h2>
+  <h2 style="color:green;"></h2>
+  <h2 style="color:green;">Appointment request sent successfully! You will also receive a confirmation email. We will be in touch shortly!</h2>
   <br>
   <h3>Redirecting to home page in 8 seconds...<br></h3>
   <p>If you are not redirected, please <strong><a href="http://eroberts.dev/avenga">click here</a><strong>. Or you can close this window.</p>
