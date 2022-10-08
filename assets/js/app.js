@@ -353,14 +353,14 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 			<label for="confirmation-screen--form-address">Address For This Service</label><br>
 			<input type="text" name="address" id="confirmation-screen--form-address" maxlength="100" required /><br>
 			<label for="confirmation-screen--form-residence">Type of Residence</label><br>
-			<select name="residence" id="confirmation-screen--form-residence" required><br>
+			<select name="residence-type" id="confirmation-screen--form-residence" required><br>
 				<option value="House">House</option>
 				<option value="Townhouse">Townhouse</option>
 				<option value="Condo">Apartment/Condo</option>
 				<option value="Business">Other</option>
 			</select><br>
 			<label for="confirmation-screen--form-type">Project Type</label><br>
-			<select name="type" id="confirmation-screen--form-type" required>
+			<select name="project-type" id="confirmation-screen--form-type" required>
 				<option value="Commercial">Commercial</option>
 				<option value="Residential">Residential</option>
 			</select><br>
@@ -382,7 +382,7 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 								<img src="${img}" id="confirmation-img" alt="Service Image" />
 								<p class="appointment-maker--modal-body-confirmation-date">Appointment Date:<span class="appt-info"> ${apptDate}</span></p>
 								<hr class="summary-hr" />
-								<p class="appointment-maker--modal-body-confirmation-time">Appointment Time:<span class="appt-info"> ${apptTime}</span></p>
+								<p class="appointment-maker--modal-body-confirmation-time">Appointment Time:<span class="appt-info"> ${apptTime}</p><p> MDT (UTC/GMT -6 hours)</span></p>
 								<hr class="summary-hr" />
 								<p class="appointment-maker--modal-body-confirmation-contact">Contact: 
 								<a href="mailto:jrrobinson@hydroresolutions.com"><span class="appt-info">${name}</span>
@@ -437,7 +437,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 			<hr class="summary-hr" />
 			<p class="booking-service-fee">For a fee</p>
 			<hr class="summary-hr" />
-			<p class="booking-service-contact">Contact: <a href="mailto:jrrobinson@hydroresolutions.com">${contact}</p></a>
+			<p class="booking-service-contact">Contact: <a href="mailto:info@hydroresolutions.com">${contact}</p></a>
 		</div>
 		</div>
 		</div>

@@ -155,11 +155,9 @@
         </div>
       </div>
       <div id="contact-widget--lower">
-        <div class="contact-widget--lower-icon-wrapper">
-          <a href="#">
+        <div class="contact-widget--lower-icon-wrapper" id="appointment-maker">
             <img src="./assets/icons/calendar-icon.png" alt="schedule appointment" title="Schedule Appointment" class="contact-icon" id="contact-icon--calendar">
             <p class="icon-text">Schedule Now</p>
-          </a>
         </div>
         <div class="contact-widget--lower-icon-wrapper">
           <a href="tel:575-887-6918" target="_blank">
@@ -175,11 +173,104 @@
         </div>
         <div class="contact-widget--lower-icon-wrapper">
           <a href="mailto:info@hydroresolutions.com" target="_blank">
-            <img src="./assets/icons/email-icon.png" alt="Email Icon" title="Email Us" class="email-icon" id="contact-icon--email">
+            <img src="./assets/icons/email-icon.png" alt="Email Icon" title="Email Us" class="email-icon contact-icon" id="contact-icon--email">
             <p class="icon-text">Email Us</p>
           </a>
         </div>
       </div>
+      </div>
+
+      <!-- Appointment maker modal/widget -->
+      <div id="appointment-maker--modal">
+          <div id="appointment-maker--modal-container">
+            <div id="appointment-maker--modal-header">
+              <!-- Avenga Logo -->
+              <div id="appointment-maker--modal-logo">
+                <img src="./assets/img/logo-240w.jpg" alt="Avenga Logo" id="appointment-maker--modal-logo-img">
+              </div>
+              <img src="./assets/icons/close-icon.png" alt="Close" id="appointment-maker--modal-close">
+            </div>
+            <div id="appointment-maker--modal-body">
+              <h4 id="appointment-maker--modal-title">Please select service:</h4>
+            <div id="appointment-maker--modal-body-services">
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-borehole-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Borehole Video</h5>
+                  <p class="appointment-maker--modal-body-service-time">1 hour | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Down-hole video of your well that includes a DVD copy to view at your convenience.
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="borehole-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-water-well-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Water Well Inspection</h5>
+                  <p class="appointment-maker--modal-body-service-time">1 hour | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="well-inspection-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-pressure-tank-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Service Call - Pressure Tank</h5>
+                  <p class="appointment-maker--modal-body-service-time">3 hours | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Issues with your pressure tank/switch? Let us help.
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="pressure-tank-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-windmill-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Service Call - Windmill</h5>
+                  <p class="appointment-maker--modal-body-service-time">3 hours | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Need your windmill repaired or new parts to replace? Give us a call!
+                  </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="windmill-button">Book This Service</button></div>
+                </div>
+              </div>
+
+              <div class="appointment-maker--modal-body-service">
+                <div class="appointment-maker--modal-body-service--left" id="service-appointment-img">
+                </div>
+                <div class="appointment-maker--modal-body-service--right">
+                  <h5 class="appointment-maker--modal-body-service-title">Service Appointment</h5>
+                  <p class="appointment-maker--modal-body-service-time">1 hour | For a fee</p>
+                  <p class="appointment-maker--modal-body-service-description">
+                    Out of water? Not sure why? Let us come figure it out
+                    </p>
+                </div>
+                <div class="overlay">
+                  <div class="text"><button class="service-button" id="service-appointment-button">Book This Service</button></div>
+                </div>
+              </div>
+          </div>
+          
+        </div>
+        </div> 
       </div>
 
       <script src="./assets/js/app.js"></script>
