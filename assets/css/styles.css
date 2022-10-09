@@ -19,6 +19,22 @@ body {
   background-color: var(--main-white);
 }
 
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-turquoise) var(--main-gray);
+}
+body::-webkit-scrollbar-track {
+  background: var(----main-turquoise);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--main-gray) ;
+  border-radius: 6px;
+  border: 3px solid var(----main-turquoise);
+}
+
 a {
   text-decoration: none;
   color: var(--main-black);
@@ -889,11 +905,13 @@ flex-grow: 1;
   overflow-y: scroll;
   background-color: var(--main-white);
   border-radius: 5px;
+  scrollbar-color: var(--main-turquoise) var(--main-white);
+  scrollbar-width: thin;
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25);
 }
 
 #appointment-maker--modal-container::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
 #appointment-maker--modal-header {
