@@ -90,6 +90,7 @@ const compareDates = () => {
 };
 
 // TODO: Refactor this function
+// ANY EMPLOYERS WHO ARE LOOKING AT THIS: I'm aware this function is a mess. I'm working on refactoring it.
 // Populates booking screen with service information
 const generateServiceTimes = (service) => {
 	if (compareDates() === 'past') {
@@ -342,7 +343,7 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 		<p id="back-button-text">Go Back</p>
 	</div>
 	<div id="confirmation-screen--left">
-	<form id="confirmation-screen--form" action="./assets/utils/appointment-form.php" method="POST">
+	<form id="confirmation-screen--form" autocomplete="on" action="./assets/utils/appointment-form.php" method="POST">
 		<div class="confirmation-screen--form-group">
 			<label for="confirmation-screen--form-name">Name</label><br>
 			<input type="text" name="name" placeholder="Name" id="confirmation-screen--form-name" maxlength="50" required /><br>
@@ -351,7 +352,7 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 			<label for="confirmation-screen--form-phone">Phone</label><br>
 			<input type="tel" name="phone" placeholder="Phone Number" id="confirmation-screen--form-phone" maxlength="14" required /><br>
 			<label for="autocomplete">Address For This Service</label><br>
-			<input type="text" name="address" placeholder="Address" id="autocomplete" maxlength="150" required /><br>
+			<input type="text" name="address" placeholder="Address" id="autocomplete" autocomplete="street-address" maxlength="250" required /><br>
 			<label for="confirmation-screen--form-residence">Type of Residence</label><br>
 			<select name="residence-type" id="confirmation-screen--form-residence" required><br>
 				<option value="House">House</option>
