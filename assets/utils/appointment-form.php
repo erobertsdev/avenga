@@ -84,6 +84,7 @@ body {
  }
  .service-title {
   margin: 0 auto;
+  margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
   color: #4a6b74;
