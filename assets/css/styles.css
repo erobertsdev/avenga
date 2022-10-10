@@ -1545,6 +1545,17 @@ height: 20px;
   #our-story--title, #services--title, #contact-title, #contact-sub-title {
     text-align: center;
   }
+  #confirmation-screen--left input, #confirmation-screen--left textarea, #confirmation-screen--left select {
+    width: 100%;
+    font-size: 0.7em;
+  }
+  #confirmation-screen--right p, #confirmation-screen--right span {
+    /* width: 100%; */
+    font-size: 0.8rem;
+  }
+  #confirmation-screen--form-cancel-button {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 650px) {
