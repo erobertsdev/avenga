@@ -64,6 +64,11 @@ body {
   height: auto;
   margin: 0 auto;
  }
+ h1 {
+  color: #4a6b74;
+  text-align: center;
+  margin: 0 auto;
+ }
  main {
   text-align: center;
   width: 80%;
@@ -73,11 +78,13 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
  }
  .service-title {
+  margin: 0 auto;
   font-size: 18px;
   font-weight: bold;
   color: #4a6b74;
  }
  .service-p {
+  margin: 0 auto;
   font-size: 14px;
   color: #000;
   font-weight: bold;
@@ -119,7 +126,7 @@ if ($avenga_email) {
     // Redirect back to index.html after 3 seconds
   header( 'refresh:10;url=https://eroberts.dev/avenga/index.html' );
   echo '
-  <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;background-color:#bababc;>
+  <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
   <h2 style="color:#4a6b74;">Message sent successfully!</h2>
   <br>
   <p>Redirecting to home page in 10 seconds...</p><br>
@@ -132,7 +139,7 @@ if ($avenga_email) {
     // Redirect back to contact.html after 3 seconds
   header( 'refresh:10;url=https://eroberts.dev/avenga/contact.html' );
   echo '
-  <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;background-color:#bababc;>
+  <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
   <h2 style="color:#4a6b74;">Sorry, an error occurred while sending the message. Please try again.</h2>
   <p>Redirecting to contact form in 10 seconds...</p>
   <p>You can also click here <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>.</p>
