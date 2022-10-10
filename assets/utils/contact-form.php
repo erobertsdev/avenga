@@ -64,6 +64,11 @@ body {
   height: auto;
   margin: 0 auto;
  }
+ .avenga-logo {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+ }
  h1 {
   color: #4a6b74;
   text-align: center;
@@ -93,7 +98,7 @@ body {
 </head>
 <body>
 <div id="avenga-logo">
-<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo">
+<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" class="avenga-logo">
 </div>
 <main>
 <h1 style="color:#4a6b74;">Thank you for contacting Avenga! We\'ve received your message and will be in touch shortly.</h1>
