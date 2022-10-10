@@ -54,7 +54,7 @@ $message_customer = '
 <html>
 <head>
 <style>
-body { 
+body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   text-align: center;
@@ -96,7 +96,7 @@ body {
 <img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" id="avenga-logo">
 </div>
 <main>
-<h1 style="color:#4a6b74;">Thank you for contacting us! We\'ve received your message and will be in touch shortly!</h1>
+<h1 style="color:#4a6b74;">Thank you for contacting Avenga! We\'ve received your message and will be in touch shortly.</h1>
 <hr>
 <p class="service-title">Name:</p><p class="service-p"> ' . $name . '</p>
 ';
@@ -115,7 +115,7 @@ $message_customer .= '
 ';
 $message_customer .= '<hr></main></body></html>';
 
-$headers_avenga = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_avenga = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 $headers_customer = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 
 $avenga_email = mail($to, 'New Contact Form Submission', $message_avenga, $headers_avenga);
@@ -123,7 +123,6 @@ $customer_email = mail($from, 'Thank you for contacting Avenga!', $message_custo
 
 // True if email sent successfully
 if ($avenga_email) {
-    // Redirect back to index.html after 3 seconds
   header( 'refresh:10;url=https://eroberts.dev/avenga/index.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
@@ -136,7 +135,6 @@ if ($avenga_email) {
   die();
 
 } else {
-    // Redirect back to contact.html after 3 seconds
   header( 'refresh:10;url=https://eroberts.dev/avenga/contact.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
