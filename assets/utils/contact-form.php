@@ -57,7 +57,7 @@ $message_customer = '
 body { 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  background-color: #bababc;
+  text-align: center;
  }
  #avenga-logo {
   width: 300px;
@@ -65,46 +65,48 @@ body {
   margin: 0 auto;
  }
  main {
+  text-align: center;
   width: 80%;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
  }
- #avenga-logo {
-  width: 200px;
-  height: auto;
-  margin: 0 auto;
- }
- .service {
+ .service-title {
   font-size: 18px;
   font-weight: bold;
   color: #4a6b74;
+ }
+ .service-p {
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
  }
 </style>
 </head>
 <body>
 <div id="avenga-logo">
 <img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" id="avenga-logo">
-<h1 style="color:#4a6b74;">Thank you for contacting us! We received your message and will be in touch shortly!</h1>
 </div>
+<main>
+<h1 style="color:#4a6b74;">Thank you for contacting us! We\'ve received your message and will be in touch shortly!</h1>
 <hr>
-<p class="service">Name: ' . $name . '</p>
+<p class="service-title">Name:</p><p class="service-p"> ' . $name . '</p>
 ';
 // Check if business name is empty
 if($business_name != '') {
-  $message_customer .= '<p><b>Business Name:</b> ' . $business_name . '</p>';
+  $message_customer .= '<p class="service-title">Business Name:</p><p class="service-p"> ' . $business_name . '</p>';
 } else {
-  $message_customer .= '<p><b>Business Name:</b> Not Applicable / Not Provided</p>';
+  $message_customer .= '<p class="service-title">Business Name:</p><p class="service-p"> Not Applicable / Not Provided</p>';
 }
 // Message trimmed to 3000 characters and any html removed from message for security
 $message_customer .= '
-<p class="service">Email: ' . $email . '</p>
-<p class="service">Phone: ' . $phone . '</p>
-<p class="service">Address: ' . $address . '</p>
-<p class="service">Message: ' . htmlspecialchars(substr($_POST['message'],0,3000)) . '</p>
+<p class="service-title">Email:</p><p class="service-p"> ' . $email . '</p>
+<p class="service-title">Phone:</p><p class="service-p"> ' . $phone . '</p>
+<p class="service-title">Address:</p><p class="service-p"> ' . $address . '</p>
+<p class="service-title">Message:</p><p class="service-p"> ' . htmlspecialchars(substr($_POST['message'],0,3000)) . '</p>
 ';
-$message_customer .= '<hr></body></html>';
+$message_customer .= '<hr></main></body></html>';
 
 $headers_avenga = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 $headers_customer = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
@@ -121,7 +123,7 @@ if ($avenga_email) {
   <h2 style="color:#4a6b74;">Message sent successfully!</h2>
   <br>
   <p>Redirecting to home page in 10 seconds...</p><br>
-  <p>You can also click here <strong><a href="http://eroberts.dev/avenga">click here</a><strong>, or you can close this window.</p>
+  <p>You can also click here <strong><a href="http://eroberts.dev/avenga">click here</a></strong>, or you can close this window.</p>
   </div>
 ';
   die();
