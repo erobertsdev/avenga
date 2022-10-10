@@ -92,7 +92,9 @@ body {
 </style>
 </head>
 <body>
-<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" id="avenga-logo">
+<div id="avenga-logo">
+<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo">
+</div>
 <h1 style="color:#4a6b74;">Thank you for choosing Avenga! Your service request has been sent to 
 management for final approval. We will be in touch shortly.</h1>
 <h2 style="color:#000;">Here is a copy of your request:</h2>
