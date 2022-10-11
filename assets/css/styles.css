@@ -1504,6 +1504,12 @@ height: 20px;
     padding-bottom: 0px;
     padding-top: 0px;
   }
+  #appointment-maker--modal-container {
+    width: 90%;
+  }
+  #confirmation-screen--left {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 750px) {
