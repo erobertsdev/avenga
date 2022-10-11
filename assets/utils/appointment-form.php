@@ -132,7 +132,7 @@ if ($avenga_email) {
     header( 'refresh:10;url=https://avengawws.com/index.html' );
     echo '
     <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
-    <h2 style="color:#4a6b74;">Service request sent successfully! We will be in touch shortly.</h2>
+    <h2 style="color:#4a6b74;">Service request sent successfully! Management is reviewing your request for final approval. You will receive an automated email with the appointment details. We will be in touch shortly.</h2>
     <br>
     <p>Redirecting to home page in 10 seconds...</p><br>
     <p>You can also click here <strong><a href="http://avengawws.com">click here</a></strong>, or you can close this window.</p>
