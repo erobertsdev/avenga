@@ -1562,6 +1562,12 @@ height: 20px;
   #choose-us--grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  #appointment-maker--modal-container {
+    width: 90%;
+  }
+  #confirmation-screen--left {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 550px) {
