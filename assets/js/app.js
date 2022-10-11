@@ -91,6 +91,7 @@ const compareDates = () => {
 
 // TODO: Refactor this function
 // ANY EMPLOYERS WHO ARE LOOKING AT THIS: I'm aware this function is a mess. I'm working on refactoring it.
+// It works. That was the important part. I'll get to it eventually.
 // Populates booking screen with service information
 const generateServiceTimes = (service) => {
 	if (compareDates() === 'past') {
@@ -201,7 +202,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Borehole Video',
 			'1 hour',
-			'https://eroberts.dev/avenga/assets/img/service-borehole.jpg',
+			'https://avengawws.com/assets/img/service-borehole.jpg',
 			'Jesika Robinson'
 		);
 	});
@@ -212,7 +213,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Water Well Inspection',
 			'1 hour',
-			'https://eroberts.dev/avenga/assets/img/service-water-well-inspection.jpg',
+			'https://avengawws.com/assets/img/service-water-well-inspection.jpg',
 			'Jesika Robinson'
 		);
 	});
@@ -223,7 +224,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Service Call - Pressure Tank',
 			'3 hours',
-			'https://eroberts.dev/avenga/assets/img/service-pressure-tank.jpg',
+			'https://avengawws.com/assets/img/service-pressure-tank.jpg',
 			'Jesika Robinson'
 		);
 	});
@@ -234,7 +235,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Service Call - Windmill',
 			'3 hours',
-			'https://eroberts.dev/avenga/assets/img/service-windmill.jpg',
+			'https://avengawws.com/assets/img/service-windmill.jpg',
 			'Jesika Robinson'
 		);
 	});
@@ -245,7 +246,7 @@ const restoreEventListeners = () => {
 		bookingScreen(
 			'Service Appointment',
 			'1 hour',
-			'https://eroberts.dev/avenga/assets/img/service-appointment.png',
+			'https://avengawws.com/assets/img/service-appointment.png',
 			'Jesika Robinson'
 		);
 	});
@@ -339,7 +340,7 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 	<h4 id="appointment-maker--modal-title">Service Details:</h4>
 	<div id="confirmation-screen">
 	<div id="back-container">
-		<img id="back-button" src="https://eroberts.dev/avenga/assets/img/back-arrow.png" alt="back arrow" />
+		<img id="back-button" src="https://avengawws.com/assets/img/back-arrow.png" alt="back arrow" />
 		<p id="back-button-text">Go Back</p>
 	</div>
 	<div id="confirmation-screen--left">
@@ -384,16 +385,16 @@ const confirmationScreen = (title, apptDate, apptTime, serviceTime, img, name) =
 							<h5 id="appointment-maker--modal-body-confirmation-title">${title}</h5>
 							<hr class="summary-hr" />
 								<img src="${img}" id="confirmation-img" alt="Service Image" />
-								<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
+								<img src="https://avengawws.com/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-date">Appointment Length:<span class="appt-info"> ${serviceTime}</span></p>
 								<hr class="summary-hr" />
-								<img src="https://eroberts.dev/avenga/assets/icons/calendar-icon.png" alt="Calendar Icon" class="summary-icon" />
+								<img src="https://avengawws.com/assets/icons/calendar-icon.png" alt="Calendar Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-date">Appointment Date:<span class="appt-info"> ${apptDate}</span></p>
 								<hr class="summary-hr" />
-								<img src="https://eroberts.dev/avenga/assets/icons/service-time-icon.png" alt="Service Time Icon" class="summary-icon" />
+								<img src="https://avengawws.com/assets/icons/service-time-icon.png" alt="Service Time Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-time">Appointment Time:<span class="appt-info"> ${apptTime}</p><p> MDT (UTC/GMT -6 hours)</span></p>
 								<hr class="summary-hr" />
-								<img src="https://eroberts.dev/avenga/assets/icons/email-icon.png" alt="Email Icon" class="summary-icon" />
+								<img src="https://avengawws.com/assets/icons/email-icon.png" alt="Email Icon" class="summary-icon" />
 								<p class="appointment-maker--modal-body-confirmation-contact">Contact: 
 								<a href="mailto:jrrobinson@hydroresolutions.com"><span class="appt-info">${name}</span>
 								</p></a>
@@ -415,7 +416,7 @@ const bookingScreen = (service, time, imageURL, contact) => {
 	appointmentModalBody.innerHTML = `
 	<div id="date-picker">
 	<div id="back-container">
-		<img id="back-button" src="https://eroberts.dev/avenga/assets/img/back-arrow.png" alt="back arrow" />
+		<img id="back-button" src="https://avengawws.com/assets/img/back-arrow.png" alt="back arrow" />
 		<p id="back-button-text">Go Back</p>
 	</div>
 	<div id="date-picker--left">
@@ -442,13 +443,13 @@ const bookingScreen = (service, time, imageURL, contact) => {
 			<hr class="summary-hr" />
 			<img src="${imageURL}" alt="Service Image" class="service-image" />
 			<div id="appointment-maker--modal-body-summary">
-			<img src="https://eroberts.dev/avenga/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
+			<img src="https://avengawws.com/assets/icons/clock-icon.png" alt="Clock Icon" class="summary-icon" />
 			<p class="booking-service-time" id="booking-service-time">${time}</p>
 			<hr class="summary-hr" />
-			<img src="https://eroberts.dev/avenga/assets/icons/money-icon.png" alt="Money Icon" class="summary-icon" />
+			<img src="https://avengawws.com/assets/icons/money-icon.png" alt="Money Icon" class="summary-icon" />
 			<p class="booking-service-fee">For a fee</p>
 			<hr class="summary-hr" />
-			<img src="https://eroberts.dev/avenga/assets/icons/email-icon.png" alt="Email Icon" class="summary-icon" />
+			<img src="https://avengawws.com/assets/icons/email-icon.png" alt="Email Icon" class="summary-icon" />
 			<p class="booking-service-contact">Contact: <a href="mailto:jrrobinson@hydroresolutions.com">${contact}</p></a>
 		</div>
 		</div>
@@ -499,7 +500,7 @@ serviceBoreholeButton.addEventListener('click', () => {
 	bookingScreen(
 		'Borehole Video',
 		'1 hour',
-		'https://eroberts.dev/avenga/assets/img/service-borehole.jpg',
+		'https://avengawws.com/assets/img/service-borehole.jpg',
 		'Jesika Robinson'
 	);
 });
@@ -509,7 +510,7 @@ serviceWellInspectionButton.addEventListener('click', () => {
 	bookingScreen(
 		'Water Well Inspection',
 		'1 hour',
-		'https://eroberts.dev/avenga/assets/img/service-water-well-inspection.jpg',
+		'https://avengawws.com/assets/img/service-water-well-inspection.jpg',
 		'Jesika Robinson'
 	);
 });
@@ -519,7 +520,7 @@ servicePressureTankButton.addEventListener('click', () => {
 	bookingScreen(
 		'Service Call - Pressure Tank',
 		'3 hours',
-		'https://eroberts.dev/avenga/assets/img/service-pressure-tank.jpg',
+		'https://avengawws.com/assets/img/service-pressure-tank.jpg',
 		'Jesika Robinson'
 	);
 });
@@ -529,7 +530,7 @@ serviceWindmillButton.addEventListener('click', () => {
 	bookingScreen(
 		'Service Call - Windmill',
 		'3 hours',
-		'https://eroberts.dev/avenga/assets/img/service-windmill.jpg',
+		'https://avengawws.com/assets/img/service-windmill.jpg',
 		'Jesika Robinson'
 	);
 });
@@ -539,7 +540,7 @@ serviceAppointmentButton.addEventListener('click', () => {
 	bookingScreen(
 		'Service Appointment',
 		'1 hour',
-		'https://eroberts.dev/avenga/assets/img/service-appointment.png',
+		'https://avengawws.com/assets/img/service-appointment.png',
 		'Jesika Robinson'
 	);
 });

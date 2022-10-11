@@ -3,7 +3,7 @@
 if($_POST['name'] != '' && $_POST['email'] != '' && $_POST['message'] != '' && $_POST['phone'] != '' && $_POST['address'] != '') {
 
 // All inputs trimmed/filtered for security
-$to = 'erobertsdev@gmail.com'; // Email sent to Avenga
+$to = 'jrrobinson@hydroresolutions.com'; // Email sent to Avenga
 $email = str_replace(array("\r", "\n", "%0a", "%0d"), '', substr($_POST['email'],0,80));
 $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 $reply_email = 'jrrobinson@hydroresolutions.com';
@@ -99,7 +99,7 @@ body {
 </head>
 <body>
 <div id="avenga-logo">
-<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" class="avenga-logo">
+<img src="https://avengawws.com/assets/img/avenga-logo.png" alt="Avenga Logo" class="avenga-logo">
 </div>
 <main>
 <h1 style="color:#4a6b74;">Thank you for contacting Avenga! We\'ve received your message and will be in touch shortly.</h1>
@@ -121,32 +121,32 @@ $message_customer .= '
 ';
 $message_customer .= '<hr></main></body></html>';
 
-$headers_avenga = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
-$headers_customer = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_avenga = ['From' => 'Avenga <info@avengawws.com>', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_customer = ['From' => 'Avenga <info@avengawws.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 
 $avenga_email = mail($to, 'New Contact Form Submission', $message_avenga, $headers_avenga);
 $customer_email = mail($from, 'Thank you for contacting Avenga!', $message_customer, $headers_customer);
 
 // True if email sent successfully
 if ($avenga_email) {
-  header( 'refresh:10;url=https://eroberts.dev/avenga/index.html' );
+  header( 'refresh:10;url=https://avengawws.com/index.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
   <h2 style="color:#4a6b74;">Message sent successfully!</h2>
   <br>
   <p>Redirecting to home page in 10 seconds...</p><br>
-  <p>You can also click here <strong><a href="http://eroberts.dev/avenga">click here</a></strong>, or you can close this window.</p>
+  <p>You can also click here <strong><a href="http://avengawws.com">click here</a></strong>, or you can close this window.</p>
   </div>
 ';
   die();
 
 } else {
-  header( 'refresh:10;url=https://eroberts.dev/avenga/contact.html' );
+  header( 'refresh:10;url=https://avengawws.com/contact.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
   <h2 style="color:#4a6b74;">Sorry, an error occurred while sending the message. Please try again.</h2>
   <p>Redirecting to contact form in 10 seconds...</p>
-  <p>You can also click here <strong><a href="http://eroberts.dev/avenga/contact.html">click here</a></strong>.</p>
+  <p>You can also click here <strong><a href="http://avengawws.com/contact.html">click here</a></strong>.</p>
   </div> 
 ';
   die();

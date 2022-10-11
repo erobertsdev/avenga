@@ -4,11 +4,11 @@
 if($_POST['name'] != '' && $_POST['email'] != '' && $_POST['phone'] != '' && $_POST['address'] != '' 
 && $_POST['residence-type'] != '' && $_POST['project-type'] != '' && $_POST['description'] != '') {
 
-$to = 'erobertsdev@gmail.com'; // email sent to Avenga
+$to = 'jrrobinson@hydroresolutions.com'; // email sent to Avenga
 $email = str_replace(array("\r", "\n", "%0a", "%0d"), '', substr($_POST['email'],0,80)); // email sent to customer
 $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 $reply_email = 'jrrobinson@hydroresolutions.com'; // Reply-to email from Avenga
-$from = $_POST['email']; // Shows as 'Avenga-Contact@avengawaterwell.com to Avenga and customer
+$from = $_POST['email']; // Shows as 'Avenga info@avengawws.com' to Avenga and customer
 $name = filter_var(substr($_POST['name'],0,50), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer name
 $phone = filter_var(substr($_POST['phone'],0,12), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer phone number
 $address = filter_var(substr($_POST['address'],0,100), FILTER_SANITIZE_FULL_SPECIAL_CHARS); // Customer address
@@ -99,7 +99,7 @@ body {
 </head>
 <body>
 <div id="avenga-logo">
-<img src="https://eroberts.dev/avenga/assets/img/avenga-logo.png" alt="Avenga Logo" class="avenga-logo">
+<img src="https://avengawws.com/assets/img/avenga-logo.png" alt="Avenga Logo" class="avenga-logo">
 </div>
 <h1 style="color:#4a6b74;">Thank you for choosing Avenga! Your service request has been sent to 
 management for final approval. We will be in touch shortly.</h1>
@@ -121,32 +121,32 @@ $message_customer .= '
 ';
 $message_customer .= '<hr></body></html>';
 
-$headers_avenga = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
-$headers_customer = ['From' => 'Avenga <info@avengawaterwell.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_avenga = ['From' => 'Avenga <info@avengawws.com>', 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
+$headers_customer = ['From' => 'Avenga <info@avengawws.com>', 'Reply-To' => $reply_email, 'Content-type' => 'text/html; charset=iso-8859-1', 'MIME-Version' => 1.0];
 
 $avenga_email = mail($to, 'New Service Request', $message_avenga, $headers_avenga);
 $customer_email = mail($from, 'We received your service request!', $message_customer, $headers_customer);
 
 // True if email sent successfully
 if ($avenga_email) {
-    header( 'refresh:10;url=https://eroberts.dev/avenga/index.html' );
+    header( 'refresh:10;url=https://avengawws.com/index.html' );
     echo '
     <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
     <h2 style="color:#4a6b74;">Service request sent successfully! We will be in touch shortly.</h2>
     <br>
     <p>Redirecting to home page in 10 seconds...</p><br>
-    <p>You can also click here <strong><a href="http://eroberts.dev/avenga">click here</a></strong>, or you can close this window.</p>
+    <p>You can also click here <strong><a href="http://avengawws.com">click here</a></strong>, or you can close this window.</p>
     </div>
 ';
   die();
 
 } else {
-  header( 'refresh:10;url=https://eroberts.dev/avenga/index.html' );
+  header( 'refresh:10;url=https://avengawws.com/index.html' );
   echo '
   <div style="font-family:Arial,Helvetica,sans-serif;text-align:center;color:#4a6b74";font-weight:"bold;">
   <h2 style="color:#4a6b74;">Sorry, an error occurred while sending the message. Please try again.</h2>
   <p>Redirecting back to Avenga site in 10 seconds...</p>
-  <p>You can also click here <strong><a href="http://eroberts.dev/avenga/index.html">click here</a></strong>.</p>
+  <p>You can also click here <strong><a href="http://avengawws.com/index.html">click here</a></strong>.</p>
   </div> 
 ';
   die();
